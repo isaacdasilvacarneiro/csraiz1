@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+    content="CSRaiz — encontre servidores de Counter-Strike 1.6, veja jogadores, mapas, status e conecte-se rapidamente.">
+
+<meta name="keywords"
+    content="CS 1.6, Counter Strike 1.6, servidores CS 1.6, servidores Counter Strike, CSRaiz">
+
+<meta name="author" content="CSRaiz">
+
+<meta name="theme-color" content="#0b0f14">
+
+<meta property="og:title" content="CSRaiz — Servidores de Counter-Strike 1.6">
+<meta property="og:description"
+    content="Encontre servidores de CS 1.6 e veja jogadores, mapas e status em tempo real.">
+<meta property="og:type" content="website">
+
+<title>CSRaiz — Servidores de Counter-Strike 1.6</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --bg: #080b0f;
+        --bg-secondary: #0e1319;
+        --card: #111820;
+        --card-hover: #17212b;
+        --border: #202b36;
+        --text: #f1f5f9;
+        --muted: #8b98a7;
+        --green: #39d353;
+        --yellow: #f5c542;
+        --red: #ff4d4d;
+        --orange: #f59e0b;
+        --blue: #3b82f6;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+            radial-gradient(circle at top, #18232e 0, #080b0f 42%);
+        color: var(--text);
+        min-height: 100vh;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+        font: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(8, 11, 15, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .header-content {
+        max-width: 1180px;
+        margin: auto;
+        min-height: 70px;
+        padding: 0 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: linear-gradient(135deg, #f59e0b, #b45309);
+        color: #fff;
+        font-size: 21px;
+        font-weight: 900;
+
+        box-shadow: 0 5px 20px rgba(245, 158, 11, .2);
+    }
+
+    .logo-text {
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+    }
+
+    .logo-text span {
+        color: var(--orange);
+    }
+
+    nav {
+        display: flex;
+        gap: 24px;
+    }
+
+    nav a {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: bold;
+        transition: .2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+        color: #fff;
+    }
+
+    /* HERO */
+
+    .hero {
+        max-width: 1180px;
+        margin: auto;
+        padding: 70px 20px 45px;
+        text-align: center;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 7px 13px;
+        margin-bottom: 20px;
+
+        border: 1px solid #29402e;
+        border-radius: 999px;
+
+        background: rgba(57, 211, 83, .08);
+        color: #76e28a;
+
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 12px var(--green);
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1;
+        letter-spacing: -2px;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+        color: var(--orange);
+    }
+
+    .hero p {
+        max-width: 650px;
+        margin: auto;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* STATS */
+
+    .stats {
+        max-width: 1000px;
+        margin: 0 auto 40px;
+        padding: 0 20px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+
+    .stat {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .8px;
+    }
+
+    /* MAIN */
+
+    main {
+        max-width: 1180px;
+        margin: auto;
+        padding: 0 20px 70px;
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+        font-size: 23px;
+    }
+
+    .updated {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    /* CONTROLS */
+
+    .controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .search {
+        flex: 1;
+        position: relative;
+    }
+
+    .search input {
+        width: 100%;
+        padding: 13px 15px;
+
+        background: var(--card);
+        color: white;
+
+        border: 1px solid var(--border);
+        border-radius: 9px;
+
+        outline: none;
+    }
+
+    .search input:focus {
+        border-color: #3b4c5e;
+    }
+
+    .filter {
+        min-width: 160px;
+
+        padding: 13px;
+
+        background: var(--card);
+        color: white;
+
+        border: 1px solid var(--border);
+        border-radius: 9px;
+
+        outline: none;
+    }
+
+    /* SERVERS */
+
+    .servers {
+        display: grid;
+        gap: 12px;
+    }
+
+    .server {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px;
+
+        display: grid;
+        grid-template-columns: minmax(250px, 1fr) 160px 150px 130px;
+        align-items: center;
+        gap: 20px;
+
+        transition: .2s;
+    }
+
+    .server:hover {
+        background: var(--card-hover);
+        border-color: #30404f;
+        transform: translateY(-1px);
+    }
+
+    .server-name {
+        font-weight: 800;
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+
+    .server-ip {
+        color: var(--muted);
+        font-size: 13px;
+        font-family: monospace;
+    }
+
+    .server-info {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .server-info span {
+        margin-right: 12px;
+    }
+
+    .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .online .status-dot {
+        background: var(--green);
+        box-shadow: 0 0 10px rgba(57, 211, 83, .7);
+    }
+
+    .offline .status-dot {
+        background: var(--red);
+    }
+
+    .players {
+        font-size: 14px;
+    }
+
+    .players strong {
+        color: #fff;
+    }
+
+    .players-bar {
+        height: 5px;
+        background: #202934;
+        border-radius: 10px;
+        margin-top: 7px;
+        overflow: hidden;
+    }
+
+    .players-fill {
+        height: 100%;
+        background: var(--green);
+        border-radius: 10px;
+    }
+
+    .map {
+        color: #c7d0da;
+        font-family: monospace;
+        font-size: 13px;
+    }
+
+    .connect-btn {
+        border: 0;
+        border-radius: 8px;
+        padding: 11px 15px;
+
+        background: var(--orange);
+        color: #111;
+
+        font-weight: 900;
+        font-size: 12px;
+
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .connect-btn:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+    }
+
+    .empty {
+        display: none;
+        padding: 45px;
+        text-align: center;
+        color: var(--muted);
+
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    /* ADD SERVER */
+
+    .add-server {
+        margin-top: 35px;
+        padding: 25px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(245, 158, 11, .08),
+            rgba(17, 24, 32, .8)
+        );
+
+        border: 1px solid #3a3020;
+        border-radius: 13px;
+
+        text-align: center;
+    }
+
+    .add-server h3 {
+        margin-bottom: 8px;
+    }
+
+    .add-server p {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 17px;
+    }
+
+    .add-btn {
+        display: inline-block;
+
+        padding: 11px 18px;
+
+        border: 1px solid #684c1a;
+        border-radius: 8px;
+
+        background: #241b0e;
+        color: #f8c66b;
+
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    /* FOOTER */
+
+    footer {
+        border-top: 1px solid var(--border);
+        background: #06080b;
+    }
+
+    .footer-content {
+        max-width: 1180px;
+        margin: auto;
+        padding: 30px 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    footer p {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 18px;
+    }
+
+    .footer-links a {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    .footer-links a:hover {
+        color: white;
+    }
+
+    /* TOAST */
+
+    .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 25px;
+
+        transform: translate(-50%, 80px);
+
+        background: #17212b;
+        border: 1px solid #30404f;
+
+        padding: 12px 18px;
+        border-radius: 9px;
+
+        font-size: 13px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.4);
+
+        opacity: 0;
+        transition: .3s;
+
+        z-index: 200;
+    }
+
+    .toast.show {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+        nav {
+            display: none;
+        }
+
+        .hero {
+            padding-top: 45px;
+        }
+
+        .stats {
+            grid-template-columns: 1fr;
+        }
+
+        .controls {
+            flex-direction: column;
+        }
+
+        .filter {
+            width: 100%;
+        }
+
+        .server {
+            grid-template-columns: 1fr;
+            gap: 13px;
+        }
+
+        .server-name {
+            font-size: 15px;
+        }
+
+        .connect-btn {
+            width: 100%;
+        }
+
+        .section-title {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+
+```
+    <a href="#" class="logo">
+        <div class="logo-icon">CS</div>
+
+        <div class="logo-text">
+            CS<span>Raiz</span>
+        </div>
+    </a>
+
+    <nav>
+        <a href="#" class="active">Servidores</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#adicionar">Adicionar servidor</a>
+    </nav>
+
+</div>
+```
+
+</header>
+
+<section class="hero">
+
+```
+<div class="badge">
+    <span class="pulse"></span>
+    SERVIDORES ONLINE
+</div>
+
+<h1>
+    O lugar dos<br>
+    <span>servidores raiz</span>
+</h1>
+
+<p>
+    Encontre servidores de Counter-Strike 1.6,
+    veja quem está jogando e conecte-se diretamente.
+</p>
+```
+
+</section>
+
+<section class="stats">
+
+```
+<div class="stat">
+    <div class="stat-number" id="totalServers">3</div>
+    <div class="stat-label">Servidores</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number" id="onlineServers">3</div>
+    <div class="stat-label">Online</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number" id="totalPlayers">38</div>
+    <div class="stat-label">Jogadores</div>
+</div>
+```
+
+</section>
+
+<main>
+
+```
+<div class="section-title">
+
+    <h2>Servidores de CS 1.6</h2>
+
+    <span class="updated">
+        Atualizado agora
+    </span>
+
+</div>
+
+
+<div class="controls">
+
+    <div class="search">
+        <input
+            type="search"
+            id="search"
+            placeholder="🔎 Procurar servidor, mapa ou IP..."
+        >
+    </div>
+
+    <select id="filter" class="filter">
+        <option value="all">Todos os servidores</option>
+        <option value="online">Somente online</option>
+        <option value="full">Servidor lotado</option>
+    </select>
+
+</div>
+
+
+<div class="servers" id="servers">
+
+
+    <!-- SERVIDOR 1 -->
+
+    <article
+        class="server"
+        data-name="CSRaiz #1"
+        data-ip="188.220.169.152:27028"
+        data-map="de_dust2"
+        data-status="online"
+        data-players="12"
+        data-max="32"
+    >
+
+        <div>
+
+            <div class="server-name">
+                🟢 CSRaiz #1 — 4FUN
+            </div>
+
+            <div class="server-ip">
+                188.220.169.152:27028
+            </div>
+
+            <div class="server-info">
+                <span>🎮 Counter-Strike 1.6</span>
+                <span>⚡ ReHLDS</span>
+            </div>
+
+        </div>
+
+
+        <div class="players">
+
+            <strong>
+                12 / 32
+            </strong>
+
+            <div class="players-bar">
+                <div
+                    class="players-fill"
+                    style="width: 37.5%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="map">
+            🗺️ de_dust2
+        </div>
+
+
+        <div>
+
+            <div class="status online">
+                <span class="status-dot"></span>
+                Online
+            </div>
+
+            <br>
+
+            <button
+                class="connect-btn"
+                onclick="copyIP('188.220.169.152:27028')"
+            >
+                COPIAR IP
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- SERVIDOR 2 -->
+
+    <article
+        class="server"
+        data-name="CSRaiz #2"
+        data-ip="188.220.169.152:27027"
+        data-map="de_inferno"
+        data-status="online"
+        data-players="20"
+        data-max="32"
+    >
+
+        <div>
+
+            <div class="server-name">
+                🟢 CSRaiz #2 — CLASSIC
+            </div>
+
+            <div class="server-ip">
+                188.220.169.152:27027
+            </div>
+
+            <div class="server-info">
+                <span>🎮 Counter-Strike 1.6</span>
+                <span>⚡ ReHLDS</span>
+            </div>
+
+        </div>
+
+
+        <div class="players">
+
+            <strong>
+                20 / 32
+            </strong>
+
+            <div class="players-bar">
+                <div
+                    class="players-fill"
+                    style="width: 62.5%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="map">
+            🗺️ de_inferno
+        </div>
+
+
+        <div>
+
+            <div class="status online">
+                <span class="status-dot"></span>
+                Online
+            </div>
+
+            <br>
+
+            <button
+                class="connect-btn"
+                onclick="copyIP('188.220.169.152:27027')"
+            >
+                COPIAR IP
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- SERVIDOR 3 -->
+
+    <article
+        class="server"
+        data-name="CSRaiz #3"
+        data-ip="188.220.169.152:27026"
+        data-map="de_nuke"
+        data-status="online"
+        data-players="6"
+        data-max="32"
+    >
+
+        <div>
+
+            <div class="server-name">
+                🟢 CSRaiz #3 — MIX/PUG
+            </div>
+
+            <div class="server-ip">
+                188.220.169.152:27026
+            </div>
+
+            <div class="server-info">
+                <span>🎮 Counter-Strike 1.6</span>
+                <span>⚡ ReHLDS</span>
+            </div>
+
+        </div>
+
+
+        <div class="players">
+
+            <strong>
+                6 / 32
+            </strong>
+
+            <div class="players-bar">
+                <div
+                    class="players-fill"
+                    style="width: 18.75%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="map">
+            🗺️ de_nuke
+        </div>
+
+
+        <div>
+
+            <div class="status online">
+                <span class="status-dot"></span>
+                Online
+            </div>
+
+            <br>
+
+            <button
+                class="connect-btn"
+                onclick="copyIP('188.220.169.152:27026')"
+            >
+                COPIAR IP
+            </button>
+
+        </div>
+
+    </article>
+
+
+</div>
+
+
+<div class="empty" id="empty">
+    Nenhum servidor encontrado.
+</div>
+
+
+<section class="add-server" id="adicionar">
+
+    <h3>
+        Tem um servidor de CS 1.6?
+    </h3>
+
+    <p>
+        Adicione seu servidor ao CSRaiz e coloque sua comunidade
+        na lista.
+    </p>
+
+    <a href="mailto:contato@csraiz.com" class="add-btn">
+        + ADICIONAR SERVIDOR
+    </a>
+
+</section>
+```
+
+</main>
+
+<footer id="sobre">
+
+```
+<div class="footer-content">
+
+    <p>
+        © 2026 CSRaiz — A raiz dos servidores de CS 1.6.
+    </p>
+
+    <div class="footer-links">
+        <a href="#">Início</a>
+        <a href="#adicionar">Adicionar servidor</a>
+    </div>
+
+</div>
+```
+
+</footer>
+
+<div class="toast" id="toast">
+    IP copiado!
+</div>
+
+<script>
+
+    /*
+     * ==========================================
+     * CSRaiz
+     * Sistema de busca e filtros
+     * ==========================================
+     */
+
+
+    const searchInput = document.getElementById("search");
+    const filter = document.getElementById("filter");
+
+    const serverElements =
+        document.querySelectorAll(".server");
+
+    const empty =
+        document.getElementById("empty");
+
+
+    function filterServers() {
+
+        const search =
+            searchInput.value.toLowerCase().trim();
+
+        const selectedFilter =
+            filter.value;
+
+        let visible = 0;
+
+
+        serverElements.forEach(server => {
+
+            const name =
+                server.dataset.name.toLowerCase();
+
+            const ip =
+                server.dataset.ip.toLowerCase();
+
+            const map =
+                server.dataset.map.toLowerCase();
+
+            const status =
+                server.dataset.status;
+
+            const players =
+                Number(server.dataset.players);
+
+            const max =
+                Number(server.dataset.max);
+
+
+            const matchesSearch =
+                name.includes(search) ||
+                ip.includes(search) ||
+                map.includes(search);
+
+
+            let matchesFilter = true;
+
+
+            if (selectedFilter === "online") {
+
+                matchesFilter =
+                    status === "online";
+
+            }
+
+
+            if (selectedFilter === "full") {
+
+                matchesFilter =
+                    players >= max;
+
+            }
+
+
+            const show =
+                matchesSearch &&
+                matchesFilter;
+
+
+            server.style.display =
+                show ? "grid" : "none";
+
+
+            if (show) {
+                visible++;
+            }
+
+        });
+
+
+        empty.style.display =
+            visible === 0 ? "block" : "none";
+
+    }
+
+
+    searchInput.addEventListener(
+        "input",
+        filterServers
+    );
+
+
+    filter.addEventListener(
+        "change",
+        filterServers
+    );
+
+
+    /*
+     * ==========================================
+     * COPIAR IP
+     * ==========================================
+     */
+
+    function copyIP(ip) {
+
+        navigator.clipboard.writeText(ip)
+            .then(() => {
+
+                const toast =
+                    document.getElementById("toast");
+
+                toast.textContent =
+                    "IP copiado: " + ip;
+
+                toast.classList.add("show");
+
+
+                setTimeout(() => {
+
+                    toast.classList.remove("show");
+
+                }, 2200);
+
+            })
+            .catch(() => {
+
+                alert(
+                    "IP do servidor: " + ip
+                );
+
+            });
+
+    }
+
+
+    /*
+     * ==========================================
+     * ATUALIZAÇÃO DOS CONTADORES
+     * ==========================================
+     *
+     * Futuramente estes dados poderão vir
+     * diretamente de uma API que consulta
+     * os servidores CS 1.6.
+     */
+
+    function updateStats() {
+
+        let online = 0;
+        let players = 0;
+
+
+        serverElements.forEach(server => {
+
+            if (server.dataset.status === "online") {
+
+                online++;
+
+                players +=
+                    Number(server.dataset.players);
+
+            }
+
+        });
+
+
+        document.getElementById(
+            "totalServers"
+        ).textContent =
+            serverElements.length;
+
+
+        document.getElementById(
+            "onlineServers"
+        ).textContent =
+            online;
+
+
+        document.getElementById(
+            "totalPlayers"
+        ).textContent =
+            players;
+
+    }
+
+
+    updateStats();
+
+
+    /*
+     * ==========================================
+     * ATUALIZAÇÃO VISUAL
+     * ==========================================
+     */
+
+    setInterval(() => {
+
+        updateStats();
+
+    }, 30000);
+
+</script>
+
+</body>
+</html>
