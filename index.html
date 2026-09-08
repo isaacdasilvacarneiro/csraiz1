@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<title>CSRaiz — O bom e velho Counter-Strike 1.6</title>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CSRaiz — Servidores de Counter-Strike 1.6 | CS 1.6</title>
 
 <meta name="description"
-    content="CSRaiz — servidores de Counter-Strike 1.6 voltados para a originalidade, simplicidade e competitividade do bom e velho CS.">
-
-<meta name="keywords"
-    content="CSRaiz, CS 1.6, Counter-Strike 1.6, servidores CS 1.6, servidores brasileiros">
+    content="CSRaiz — servidores brasileiros de Counter-Strike 1.6. CS 1.6 clássico, vanilla, competitivo e sem poluição de plugins. Confira nossos servidores online.">
 
 <meta name="robots" content="index, follow">
 
+<meta name="author" content="CSRaiz">
+
+<meta name="keywords"
+    content="CSRaiz, CS 1.6, Counter-Strike 1.6, servidores CS 1.6, servidor CS 1.6, servidores brasileiros CS 1.6, CS 1.6 Brasil, Counter Strike 1.6 Brasil, servidor vanilla CS 1.6, servidor competitivo CS 1.6">
+
+<link rel="canonical" href="https://csraiz.xyz/">
+
+<!-- Open Graph -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+    content="CSRaiz — Servidores de Counter-Strike 1.6">
+
+<meta property="og:description"
+    content="Servidores brasileiros de CS 1.6 clássico, vanilla e competitivo. O bom e velho Counter-Strike 1.6.">
+
+<meta property="og:url" content="https://csraiz.xyz/">
+
+<meta property="og:site_name" content="CSRaiz">
+
 <style>
+
     * {
         margin: 0;
         padding: 0;
@@ -40,24 +68,31 @@
         z-index: 1000;
 
         background: rgba(8, 11, 16, 0.97);
+
         border-bottom: 1px solid #202833;
+
         backdrop-filter: blur(8px);
     }
 
     .header-container {
         max-width: 1100px;
+
         margin: auto;
 
         padding: 16px 20px;
 
         display: flex;
+
         align-items: center;
+
         justify-content: space-between;
     }
 
     .logo {
         font-size: 25px;
+
         font-weight: 900;
+
         letter-spacing: 1px;
     }
 
@@ -67,12 +102,15 @@
 
     nav {
         display: flex;
+
         gap: 25px;
     }
 
     nav a {
         color: #b8c1cc;
+
         font-size: 14px;
+
         transition: .2s;
     }
 
@@ -86,7 +124,9 @@
         min-height: 470px;
 
         display: flex;
+
         align-items: center;
+
         justify-content: center;
 
         text-align: center;
@@ -94,7 +134,11 @@
         padding: 80px 20px;
 
         background:
-            radial-gradient(circle at center, #18222e 0%, #080b10 65%);
+            radial-gradient(
+                circle at center,
+                #18222e 0%,
+                #080b10 65%
+            );
     }
 
     .hero-content {
@@ -103,8 +147,11 @@
 
     .hero h1 {
         font-size: clamp(48px, 9vw, 82px);
+
         font-weight: 900;
+
         letter-spacing: -4px;
+
         margin-bottom: 15px;
     }
 
@@ -114,8 +161,11 @@
 
     .hero p {
         color: #aeb7c2;
+
         font-size: 19px;
+
         max-width: 650px;
+
         margin: auto auto 30px;
     }
 
@@ -123,6 +173,7 @@
         display: inline-block;
 
         background: #ff9800;
+
         color: #111;
 
         padding: 13px 27px;
@@ -136,6 +187,7 @@
 
     .hero-button:hover {
         background: #ffb52e;
+
         transform: translateY(-2px);
     }
 
@@ -143,11 +195,11 @@
 
     .container {
         max-width: 1000px;
+
         margin: auto;
+
         padding: 70px 20px;
     }
-
-    /* SEÇÕES */
 
     section {
         scroll-margin-top: 80px;
@@ -155,11 +207,13 @@
 
     .section-title {
         text-align: center;
+
         margin-bottom: 35px;
     }
 
     .section-title h2 {
         font-size: 32px;
+
         margin-bottom: 8px;
     }
 
@@ -171,6 +225,7 @@
 
     .about {
         max-width: 800px;
+
         margin: auto;
 
         text-align: center;
@@ -178,7 +233,9 @@
 
     .about p {
         color: #aeb7c2;
+
         font-size: 17px;
+
         margin-bottom: 18px;
     }
 
@@ -188,6 +245,7 @@
 
     .principles {
         display: grid;
+
         grid-template-columns: repeat(3, 1fr);
 
         gap: 18px;
@@ -199,6 +257,7 @@
         background: #111720;
 
         border: 1px solid #202a36;
+
         border-radius: 8px;
 
         padding: 25px 18px;
@@ -206,12 +265,15 @@
 
     .principle h3 {
         color: #fff;
+
         margin-bottom: 8px;
+
         font-size: 17px;
     }
 
     .principle p {
         color: #7f8b99;
+
         font-size: 14px;
     }
 
@@ -223,6 +285,7 @@
 
     .gametracker-banners {
         display: flex;
+
         flex-direction: column;
 
         align-items: center;
@@ -236,6 +299,7 @@
         display: block;
 
         width: 100%;
+
         max-width: 560px;
     }
 
@@ -243,6 +307,7 @@
         display: block;
 
         width: 100%;
+
         height: auto;
 
         border-radius: 6px;
@@ -254,6 +319,7 @@
 
     .gametracker-banners img:hover {
         border-color: #ff9800;
+
         transform: translateY(-2px);
     }
 
@@ -277,6 +343,7 @@
 
     .contact {
         max-width: 600px;
+
         margin: auto;
 
         text-align: center;
@@ -284,6 +351,7 @@
 
     .contact p {
         color: #aeb7c2;
+
         margin-bottom: 25px;
     }
 
@@ -291,11 +359,13 @@
         display: inline-flex;
 
         align-items: center;
+
         justify-content: center;
 
         gap: 9px;
 
         background: #25D366;
+
         color: #fff;
 
         padding: 13px 25px;
@@ -309,6 +379,7 @@
 
     .whatsapp-button:hover {
         transform: translateY(-2px);
+
         filter: brightness(1.08);
     }
 
@@ -363,260 +434,330 @@
         .section-title h2 {
             font-size: 27px;
         }
+
     }
+
 </style>
+
+
+<!-- DADOS ESTRUTURADOS -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CSRaiz",
+    "url": "https://csraiz.xyz/",
+    "description": "Servidores brasileiros de Counter-Strike 1.6 clássicos, vanilla e competitivos."
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CSRaiz",
+    "url": "https://csraiz.xyz/",
+    "description": "Comunidade e servidores brasileiros de Counter-Strike 1.6."
+}
+</script>
+
+</head>
+
+<body>
+
 <!-- HEADER -->
 
 <header>
 
-    <div class="header-container">
+<div class="header-container">
 
-        <a href="#inicio" class="logo">
-            CS<span>Raiz</span>
-        </a>
+    <a href="#inicio" class="logo" aria-label="CSRaiz - página inicial">
+        CS<span>Raiz</span>
+    </a>
 
-        <nav>
-            <a href="#sobre">Sobre</a>
-            <a href="#servidores">Servidores</a>
-            <a href="#contato">Contato</a>
-        </nav>
+    <nav aria-label="Navegação principal">
 
-    </div>
+        <a href="#sobre">Sobre</a>
+
+        <a href="#servidores">Servidores</a>
+
+        <a href="#contato">Contato</a>
+
+    </nav>
+
+</div>
 
 </header>
-
 
 <!-- INÍCIO -->
 
 <section class="hero" id="inicio">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <h1>
-            CS<span>Raiz</span>
-        </h1>
+    <h1>
+        CS<span>Raiz</span>
+    </h1>
+
+    <p>
+        Servidores brasileiros de Counter-Strike 1.6.
+        O bom e velho CS, do jeito que sempre deveria ser.
+    </p>
+
+    <a href="#servidores" class="hero-button">
+        Ver servidores CS 1.6
+    </a>
+
+</div>
+
+</section>
+
+<main>
+
+<!-- SOBRE -->
+
+<section id="sobre">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>
+            O que é o CSRaiz?
+        </h2>
 
         <p>
-            O bom e velho Counter-Strike 1.6,
-            do jeito que sempre deveria ser.
+            Counter-Strike 1.6 como nos velhos tempos.
         </p>
 
-        <a href="#servidores" class="hero-button">
-            Ver servidores
+    </div>
+
+
+    <div class="about">
+
+        <p>
+            O <strong>CSRaiz</strong> nasceu com uma ideia simples:
+            preservar a experiência do bom e velho
+            <strong>Counter-Strike 1.6</strong>.
+        </p>
+
+        <p>
+            Aqui a prioridade é a
+            <strong>originalidade</strong>.
+            Nada de servidores carregados de plugins,
+            efeitos exagerados ou sistemas que tiram
+            a essência do jogo.
+        </p>
+
+        <p>
+            Criamos servidores de
+            <strong>CS 1.6 vanilla</strong>,
+            buscando manter o jogo simples,
+            direto e divertido.
+        </p>
+
+        <p>
+            A prioridade é a jogabilidade,
+            a competitividade e a experiência
+            clássica que marcou o Counter-Strike 1.6.
+        </p>
+
+
+        <div class="principles">
+
+
+            <div class="principle">
+
+                <h3>🎯 Originalidade</h3>
+
+                <p>
+                    A essência do CS 1.6 acima de tudo.
+                </p>
+
+            </div>
+
+
+            <div class="principle">
+
+                <h3>⚡ Competitivo</h3>
+
+                <p>
+                    Jogabilidade limpa e focada na partida.
+                </p>
+
+            </div>
+
+
+            <div class="principle">
+
+                <h3>🔇 Sem poluição</h3>
+
+                <p>
+                    Sem excesso de plugins,
+                    sons ou efeitos.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- SERVIDORES -->
+
+<section id="servidores" class="servers-section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>
+            Servidores de Counter-Strike 1.6
+        </h2>
+
+        <p>
+            Servidores brasileiros CS 1.6
+            para jogar o clássico.
+        </p>
+
+    </div>
+
+
+    <div class="gametracker-banners">
+
+
+        <!-- SERVIDOR 27028 -->
+
+        <a
+            href="https://www.gametracker.com/server_info/188.220.169.152:27028/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="https://cache.gametracker.com/server_info/188.220.169.152:27028/b_560_95_1.png"
+                alt="Servidor CSRaiz CS 1.6 - porta 27028"
+                loading="lazy">
+
+        </a>
+
+
+        <!-- SERVIDOR 27029 -->
+
+        <a
+            href="https://www.gametracker.com/server_info/188.220.169.152:27029/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="https://cache.gametracker.com/server_info/188.220.169.152:27029/b_560_95_1.png"
+                alt="Servidor CSRaiz CS 1.6 - porta 27029"
+                loading="lazy">
+
+        </a>
+
+
+        <!-- SERVIDOR 27030 -->
+
+        <a
+            href="https://www.gametracker.com/server_info/188.220.169.152:27030/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="https://cache.gametracker.com/server_info/188.220.169.152:27030/b_560_95_1.png"
+                alt="Servidor CSRaiz CS 1.6 - porta 27030"
+                loading="lazy">
+
+        </a>
+
+
+    </div>
+
+
+    <p class="server-description">
+
+        O CSRaiz reúne servidores brasileiros de
+        <strong>Counter-Strike 1.6</strong>,
+        com foco em servidores vanilla,
+        simplicidade, competitividade e
+        experiência clássica.
+
+        Os dados dos servidores são
+        apresentados pelo GameTracker.
+
+    </p>
+
+</div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section id="contato" class="contact-section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <h2>
+            Contato CSRaiz
+        </h2>
+
+        <p>
+            Fale com a comunidade.
+        </p>
+
+    </div>
+
+
+    <div class="contact">
+
+        <p>
+            Entre em contato pelo WhatsApp
+            para tirar dúvidas, falar sobre os
+            servidores de CS 1.6 ou participar
+            da comunidade CSRaiz.
+        </p>
+
+
+        <a
+            class="whatsapp-button"
+            href="https://wa.me/5581989084421"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Entrar em contato com o CSRaiz pelo WhatsApp">
+
+            WhatsApp
+
         </a>
 
     </div>
 
+</div>
+
 </section>
 
-
-<main>
-
-
-    <!-- SOBRE -->
-
-    <section id="sobre">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>O que é o CSRaiz?</h2>
-
-                <p>
-                    Counter-Strike como nos velhos tempos.
-                </p>
-
-            </div>
-
-
-            <div class="about">
-
-                <p>
-                    O <strong>CSRaiz</strong> nasceu com uma ideia simples:
-                    preservar a experiência do bom e velho
-                    <strong>Counter-Strike 1.6</strong>.
-                </p>
-
-                <p>
-                    Aqui a prioridade é a <strong>originalidade</strong>.
-                    Nada de servidores carregados de plugins,
-                    efeitos exagerados ou sistemas que tiram
-                    a essência do jogo.
-                </p>
-
-                <p>
-                    Queremos manter o CS simples, direto e divertido,
-                    valorizando principalmente a jogabilidade e
-                    a experiência competitiva.
-                </p>
-
-
-                <div class="principles">
-
-
-                    <div class="principle">
-
-                        <h3>🎯 Originalidade</h3>
-
-                        <p>
-                            A essência do CS 1.6 acima de tudo.
-                        </p>
-
-                    </div>
-
-
-                    <div class="principle">
-
-                        <h3>⚡ Competitivo</h3>
-
-                        <p>
-                            Jogabilidade limpa e focada na partida.
-                        </p>
-
-                    </div>
-
-
-                    <div class="principle">
-
-                        <h3>🔇 Sem poluição</h3>
-
-                        <p>
-                            Sem excesso de plugins, sons ou efeitos.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SERVIDORES -->
-
-    <section id="servidores" class="servers-section">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>Servidores</h2>
-
-                <p>
-                    Entre no jogo e reviva o clássico.
-                </p>
-
-            </div>
-
-
-            <div class="gametracker-banners">
-
-
-                <!-- SERVIDOR 27029 -->
-
-                <a
-                    href="https://www.gametracker.com/server_info/188.220.169.152:27029/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <img
-                        src="https://cache.gametracker.com/server_info/188.220.169.152:27029/b_560_95_1.png"
-                        alt="Servidor CSRaiz 188.220.169.152:27029 no GameTracker">
-
-                </a>
-
-
-                <!-- SERVIDOR 27030 -->
-
-                <a
-                    href="https://www.gametracker.com/server_info/188.220.169.152:27030/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <img
-                        src="https://cache.gametracker.com/server_info/188.220.169.152:27030/b_560_95_1.png"
-                        alt="Servidor CSRaiz 188.220.169.152:27030 no GameTracker">
-
-                </a>
-
-
-            </div>
-
-
-            <p class="server-description">
-
-                Os dados apresentados nos banners são fornecidos pelo
-                GameTracker. Clique em um servidor para visualizar
-                mais informações.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTATO -->
-
-    <section id="contato" class="contact-section">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>Contato</h2>
-
-                <p>
-                    Quer falar com o CSRaiz?
-                </p>
-
-            </div>
-
-
-            <div class="contact">
-
-                <p>
-                    Entre em contato conosco pelo WhatsApp.
-                    Seja para tirar dúvidas, falar sobre os servidores
-                    ou entrar para a comunidade.
-                </p>
-
-
-                <a
-                    class="whatsapp-button"
-                    href="https://wa.me/5581989084421"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    WhatsApp
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
 </main>
-
 
 <!-- FOOTER -->
 
 <footer>
 
-    <p>
-        © 2026 <strong>CSRaiz</strong>
-    </p>
+<p>
+    © 2026 <strong>CSRaiz</strong>
+</p>
 
-    <p>
-        O bom e velho Counter-Strike 1.6.
-    </p>
+<p>
+    Servidores de Counter-Strike 1.6.
+    O bom e velho CS.
+</p>
 
 </footer>
+
+</body> </html>
