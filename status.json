@@ -1,0 +1,27 @@
+{
+  "atualizado": "2026-09-21T15:21:03.153Z",
+  "servidores": [
+    {
+      "nome": "DE_INFERNO 24/7 | VANILLA",
+      "ip": "188.220.169.152",
+      "port": 27029,
+      "online": false,
+      "players": 0,
+      "maxplayers": 32,
+      "map": "-",
+      "hostname": "DE_INFERNO 24/7 | VANILLA",
+      "atualizado": "2026-09-21T15:21:03.152Z"
+    },
+    {
+      "nome": "DE_DUST2 24/7 | VANILLA",
+      "ip": "188.220.169.152",
+      "port": 27030,
+      "online": false,
+      "players": 0,
+      "maxplayers": 32,
+      "map": "-",
+      "hostname": "DE_DUST2 24/7 | VANILLA",
+      "atualizado": "2026-09-21T15:21:03.153Z"
+    }
+  ]
+}
