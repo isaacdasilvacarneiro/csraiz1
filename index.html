@@ -991,226 +991,168 @@ footer strong {
 
 <script>
 
-async function verificarServidor(card) {
+async function verificarServidores() {
 
-    const port = card.dataset.port;
-
-    const statusText =
-        card.querySelector('.status-text');
-
-    const players =
-        card.querySelector('.players');
-
-    const map =
-        card.querySelector('.map');
-
-
-    /*
-     * API GameDig / Hexane
-     *
-     * CS 1.6 = cs16
-     */
-
-    const url =
-        `https://gamedig-api.hexane.co/cs16/ip=188.220.169.152&port=${port}`;
-
-
-    /*
-     * Estado inicial
-     */
-
-    statusText.textContent = 'VERIFICANDO';
-
-    card.classList.remove(
-        'online',
-        'offline',
-        'error'
-    );
+    const servidores =
+        document.querySelectorAll('.server-card');
 
 
     try {
 
-
         /*
-         * Consulta a API
+         * Lê o arquivo gerado pelo GitHub Actions.
+         *
+         * O ?t= impede o navegador de usar
+         * uma versão antiga do arquivo.
          */
 
-        const response =
-            await fetch(url, {
-                cache: 'no-store'
-            });
+        const resposta =
+            await fetch(
+                'status.json?t=' + Date.now(),
+                {
+                    cache: 'no-store'
+                }
+            );
 
 
-        /*
-         * Lê a resposta como texto primeiro.
-         * Isso permite descobrir exatamente
-         * o que a API está devolvendo.
-         */
+        if (!resposta.ok) {
 
-        const texto =
-            await response.text();
+            throw new Error(
+                `HTTP ${resposta.status}`
+            );
+
+        }
 
 
-        /*
-         * Mostra a resposta no console
-         */
+        const dados =
+            await resposta.json();
+
 
         console.log(
-            `CSRaiz ${port} - resposta da API:`,
-            texto
+            'CSRaiz - status:',
+            dados
         );
 
 
         /*
-         * HTTP diferente de 200
+         * Atualiza cada servidor
          */
 
-        if (!response.ok) {
+        for (const card of servidores) {
 
-            throw new Error(
-                `HTTP ${response.status}`
-            );
+            const port =
+                Number(card.dataset.port);
+
+
+            const servidor =
+                dados.servidores.find(
+                    s => Number(s.port) === port
+                );
+
+
+            if (!servidor) {
+
+                mostrarErro(
+                    card,
+                    'Servidor não encontrado'
+                );
+
+                continue;
+
+            }
+
+
+            const statusText =
+                card.querySelector('.status-text');
+
+
+            const players =
+                card.querySelector('.players');
+
+
+            const map =
+                card.querySelector('.map');
+
+
+            /*
+             * ONLINE
+             */
+
+            if (servidor.online) {
+
+                card.classList.remove(
+                    'offline',
+                    'error'
+                );
+
+                card.classList.add(
+                    'online'
+                );
+
+
+                statusText.textContent =
+                    'ONLINE';
+
+
+                players.textContent =
+                    `${servidor.players}/${servidor.maxplayers} jogadores`;
+
+
+                map.textContent =
+                    servidor.map || '-';
+
+            }
+
+
+            /*
+             * OFFLINE
+             */
+
+            else {
+
+                card.classList.remove(
+                    'online',
+                    'error'
+                );
+
+                card.classList.add(
+                    'offline'
+                );
+
+
+                statusText.textContent =
+                    'OFFLINE';
+
+
+                players.textContent =
+                    `0/${servidor.maxplayers || 32} jogadores`;
+
+
+                map.textContent =
+                    '-';
+
+            }
 
         }
-
-
-        /*
-         * Converte JSON
-         */
-
-        const data =
-            JSON.parse(texto);
-
-
-        /*
-         * Mostra os dados completos
-         * no console
-         */
-
-        console.log(
-            `CSRaiz ${port} - dados:`,
-            data
-        );
-
-
-        /*
-         * API informou explicitamente
-         * que está offline
-         */
-
-        if (data.online === false) {
-
-            throw new Error(
-                data.error || 'Servidor offline'
-            );
-
-        }
-
-
-        /*
-         * API não confirmou online
-         */
-
-        if (!data.online) {
-
-            throw new Error(
-                'API não confirmou o servidor como online'
-            );
-
-        }
-
-
-        /*
-         * ONLINE
-         */
-
-        card.classList.remove(
-            'offline',
-            'error'
-        );
-
-        card.classList.add(
-            'online'
-        );
-
-
-        statusText.textContent =
-            'ONLINE';
-
-
-        /*
-         * Jogadores
-         */
-
-        const quantidadeJogadores =
-            Array.isArray(data.players)
-                ? data.players.length
-                : (data.numplayers ?? 0);
-
-
-        /*
-         * Slots
-         */
-
-        const quantidadeSlots =
-            data.maxplayers ?? 32;
-
-
-        players.textContent =
-            `${quantidadeJogadores}/${quantidadeSlots} jogadores`;
-
-
-        /*
-         * Mapa
-         */
-
-        map.textContent =
-            data.map || 'Mapa desconhecido';
-
 
     }
 
-    catch (error) {
 
-
-        /*
-         * Mostra o erro no console
-         */
+    catch (erro) {
 
         console.error(
-            `CSRaiz ${port} - erro:`,
-            error
+            'CSRaiz - erro ao carregar status:',
+            erro
         );
 
 
-        /*
-         * ERRO / OFFLINE
-         *
-         * Não vamos mais esconder
-         * o motivo do problema.
-         */
-
-        card.classList.remove(
-            'online',
-            'offline'
+        servidores.forEach(
+            card =>
+                mostrarErro(
+                    card,
+                    'Status indisponível'
+                )
         );
-
-        card.classList.add(
-            'error'
-        );
-
-
-        statusText.textContent =
-            'ERRO';
-
-
-        players.textContent =
-            'API indisponível';
-
-
-        map.textContent =
-            error.message ||
-            'Erro desconhecido';
 
     }
 
@@ -1218,27 +1160,47 @@ async function verificarServidor(card) {
 
 
 /*
- * Verifica todos os servidores
+ * Mostra erro no card
  */
 
-async function verificarServidores() {
+function mostrarErro(
+    card,
+    mensagem
+) {
 
-    const servidores =
-        document.querySelectorAll(
-            '.server-card'
-        );
+    const statusText =
+        card.querySelector('.status-text');
 
 
-    for (
-        const servidor
-        of servidores
-    ) {
+    const players =
+        card.querySelector('.players');
 
-        await verificarServidor(
-            servidor
-        );
 
-    }
+    const map =
+        card.querySelector('.map');
+
+
+    card.classList.remove(
+        'online',
+        'offline'
+    );
+
+
+    card.classList.add(
+        'error'
+    );
+
+
+    statusText.textContent =
+        'ERRO';
+
+
+    players.textContent =
+        mensagem;
+
+
+    map.textContent =
+        '-';
 
 }
 
