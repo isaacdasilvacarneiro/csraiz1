@@ -14,67 +14,185 @@ const servidores = [
     }
 ];
 
+
 async function consultarServidor(servidor) {
+
     try {
-        const resposta = await Gamedig.query({
-            type: "counterstrike16",
-            host: servidor.ip,
-            port: servidor.port,
-            socketTimeout: 5000
-        });
 
-        return {
-            nome: servidor.nome,
-            ip: servidor.ip,
-            port: servidor.port,
-            online: true,
-            players: resposta.players
-                ? resposta.players.length
-                : resposta.raw?.numplayers ?? 0,
-            maxplayers: resposta.maxplayers ?? 32,
-            map: resposta.map ?? "desconhecido",
-            hostname: resposta.name ?? servidor.nome,
-            atualizado: new Date().toISOString()
-        };
-
-    } catch (erro) {
         console.log(
-            `${servidor.ip}:${servidor.port} offline ou sem resposta`
+            `Consultando ${servidor.ip}:${servidor.port}...`
         );
 
-        return {
-            nome: servidor.nome,
-            ip: servidor.ip,
+
+        const resposta = await Gamedig.query({
+
+            type: "counterstrike16",
+
+            host: servidor.ip,
+
             port: servidor.port,
-            online: false,
-            players: 0,
-            maxplayers: 32,
-            map: "-",
-            hostname: servidor.nome,
+
+            socketTimeout: 10000
+
+        });
+
+
+        console.log(
+            `Resposta ${servidor.port}:`,
+            JSON.stringify(resposta, null, 2)
+        );
+
+
+        /*
+         * Se o GameDig respondeu, o servidor está ONLINE.
+         */
+
+        const jogadores =
+            Array.isArray(resposta.players)
+                ? resposta.players.length
+                : Number(
+                    resposta.raw?.numplayers ??
+                    resposta.numplayers ??
+                    0
+                );
+
+
+        const maxplayers =
+            Number(
+                resposta.maxplayers ??
+                resposta.raw?.maxplayers ??
+                32
+            );
+
+
+        const mapa =
+            resposta.map ??
+            resposta.raw?.map ??
+            resposta.raw?.mapname ??
+            "-";
+
+
+        const hostname =
+            resposta.name ??
+            resposta.hostname ??
+            resposta.raw?.hostname ??
+            servidor.nome;
+
+
+        return {
+
+            nome: servidor.nome,
+
+            ip: servidor.ip,
+
+            port: servidor.port,
+
+            online: true,
+
+            players: jogadores,
+
+            maxplayers: maxplayers,
+
+            map: mapa,
+
+            hostname: hostname,
+
             atualizado: new Date().toISOString()
+
         };
+
+
+    } catch (erro) {
+
+        console.log(
+            `ERRO ao consultar ${servidor.ip}:${servidor.port}`
+        );
+
+        console.log(
+            erro.message || erro
+        );
+
+
+        return {
+
+            nome: servidor.nome,
+
+            ip: servidor.ip,
+
+            port: servidor.port,
+
+            online: false,
+
+            players: 0,
+
+            maxplayers: 32,
+
+            map: "-",
+
+            hostname: servidor.nome,
+
+            atualizado: new Date().toISOString()
+
+        };
+
     }
+
 }
+
 
 async function main() {
+
     const resultados = [];
 
+
     for (const servidor of servidores) {
-        const resultado = await consultarServidor(servidor);
+
+        const resultado =
+            await consultarServidor(servidor);
+
         resultados.push(resultado);
+
     }
 
+
     const arquivo = {
-        atualizado: new Date().toISOString(),
-        servidores: resultados
+
+        atualizado:
+            new Date().toISOString(),
+
+        servidores:
+            resultados
+
     };
 
+
     fs.writeFileSync(
+
         "status.json",
-        JSON.stringify(arquivo, null, 2) + "\n"
+
+        JSON.stringify(
+            arquivo,
+            null,
+            2
+        ) + "\n"
+
     );
 
-    console.log(JSON.stringify(arquivo, null, 2));
+
+    console.log(
+        "STATUS FINAL:"
+    );
+
+
+    console.log(
+        JSON.stringify(
+            arquivo,
+            null,
+            2
+        )
+    );
+
 }
+
 
 main();
