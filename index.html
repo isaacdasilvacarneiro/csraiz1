@@ -804,7 +804,7 @@ footer strong {
             <!-- DE_INFERNO -->
 
             <div
-                class="server-card"
+                class="server-card online"
                 data-port="27029">
 
                 <div class="server-top">
@@ -827,7 +827,7 @@ footer strong {
                         <span class="status-dot"></span>
 
                         <span class="status-text">
-                            VERIFICANDO
+                            ONLINE
                         </span>
 
                     </div>
@@ -838,11 +838,11 @@ footer strong {
                 <div class="server-details">
 
                     <span class="players">
-                        --/-- jogadores
+                        Servidor online
                     </span>
 
                     <span class="map">
-                        --
+                        -
                     </span>
 
                 </div>
@@ -853,7 +853,7 @@ footer strong {
             <!-- DE_DUST2 -->
 
             <div
-                class="server-card"
+                class="server-card online"
                 data-port="27030">
 
                 <div class="server-top">
@@ -876,7 +876,7 @@ footer strong {
                         <span class="status-dot"></span>
 
                         <span class="status-text">
-                            VERIFICANDO
+                            ONLINE
                         </span>
 
                     </div>
@@ -887,11 +887,11 @@ footer strong {
                 <div class="server-details">
 
                     <span class="players">
-                        --/-- jogadores
+                        Servidor online
                     </span>
 
                     <span class="map">
-                        --
+                        -
                     </span>
 
                 </div>
@@ -987,239 +987,56 @@ footer strong {
 </footer>
 
 
-<!-- SISTEMA DE STATUS -->
+<!-- STATUS FIXO TEMPORÁRIO -->
 
 <script>
 
-async function verificarServidores() {
+function mostrarServidoresOnline() {
 
     const servidores =
         document.querySelectorAll('.server-card');
 
 
-    try {
+    servidores.forEach(card => {
 
-        /*
-         * Lê o arquivo gerado pelo GitHub Actions.
-         *
-         * O ?t= impede o navegador de usar
-         * uma versão antiga do arquivo.
-         */
+        const statusText =
+            card.querySelector('.status-text');
 
-        const resposta =
-            await fetch(
-                'status.json?t=' + Date.now(),
-                {
-                    cache: 'no-store'
-                }
-            );
+        const players =
+            card.querySelector('.players');
+
+        const map =
+            card.querySelector('.map');
 
 
-        if (!resposta.ok) {
-
-            throw new Error(
-                `HTTP ${resposta.status}`
-            );
-
-        }
-
-
-        const dados =
-            await resposta.json();
-
-
-        console.log(
-            'CSRaiz - status:',
-            dados
+        card.classList.remove(
+            'offline',
+            'error'
         );
 
 
-        /*
-         * Atualiza cada servidor
-         */
-
-        for (const card of servidores) {
-
-            const port =
-                Number(card.dataset.port);
-
-
-            const servidor =
-                dados.servidores.find(
-                    s => Number(s.port) === port
-                );
-
-
-            if (!servidor) {
-
-                mostrarErro(
-                    card,
-                    'Servidor não encontrado'
-                );
-
-                continue;
-
-            }
-
-
-            const statusText =
-                card.querySelector('.status-text');
-
-
-            const players =
-                card.querySelector('.players');
-
-
-            const map =
-                card.querySelector('.map');
-
-
-            /*
-             * ONLINE
-             */
-
-            if (servidor.online) {
-
-                card.classList.remove(
-                    'offline',
-                    'error'
-                );
-
-                card.classList.add(
-                    'online'
-                );
-
-
-                statusText.textContent =
-                    'ONLINE';
-
-
-                players.textContent =
-                    `${servidor.players}/${servidor.maxplayers} jogadores`;
-
-
-                map.textContent =
-                    servidor.map || '-';
-
-            }
-
-
-            /*
-             * OFFLINE
-             */
-
-            else {
-
-                card.classList.remove(
-                    'online',
-                    'error'
-                );
-
-                card.classList.add(
-                    'offline'
-                );
-
-
-                statusText.textContent =
-                    'OFFLINE';
-
-
-                players.textContent =
-                    `0/${servidor.maxplayers || 32} jogadores`;
-
-
-                map.textContent =
-                    '-';
-
-            }
-
-        }
-
-    }
-
-
-    catch (erro) {
-
-        console.error(
-            'CSRaiz - erro ao carregar status:',
-            erro
+        card.classList.add(
+            'online'
         );
 
 
-        servidores.forEach(
-            card =>
-                mostrarErro(
-                    card,
-                    'Status indisponível'
-                )
-        );
+        statusText.textContent =
+            'ONLINE';
 
-    }
+
+        players.textContent =
+            'Servidor online';
+
+
+        map.textContent =
+            '-';
+
+    });
 
 }
 
 
-/*
- * Mostra erro no card
- */
-
-function mostrarErro(
-    card,
-    mensagem
-) {
-
-    const statusText =
-        card.querySelector('.status-text');
-
-
-    const players =
-        card.querySelector('.players');
-
-
-    const map =
-        card.querySelector('.map');
-
-
-    card.classList.remove(
-        'online',
-        'offline'
-    );
-
-
-    card.classList.add(
-        'error'
-    );
-
-
-    statusText.textContent =
-        'ERRO';
-
-
-    players.textContent =
-        mensagem;
-
-
-    map.textContent =
-        '-';
-
-}
-
-
-/*
- * Primeira verificação
- */
-
-verificarServidores();
-
-
-/*
- * Atualiza a cada 30 segundos
- */
-
-setInterval(
-    verificarServidores,
-    30000
-);
+mostrarServidoresOnline();
 
 </script>
 
