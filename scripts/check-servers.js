@@ -14,12 +14,13 @@ const servidores = [
     }
 ];
 
+
 async function consultarServidor(servidor) {
 
     console.log("");
-    console.log("======================================");
+    console.log("========================================");
     console.log(`TESTANDO ${servidor.ip}:${servidor.port}`);
-    console.log("======================================");
+    console.log("========================================");
 
     try {
 
@@ -43,8 +44,9 @@ async function consultarServidor(servidor) {
 
         });
 
+
         console.log("");
-        console.log("RESPOSTA DO GAMEDIG:");
+        console.log(`RESPOSTA RECEBIDA - ${servidor.port}`);
 
         console.log(
             JSON.stringify(
@@ -54,31 +56,52 @@ async function consultarServidor(servidor) {
             )
         );
 
+
         const jogadores =
             Array.isArray(resposta.players)
                 ? resposta.players.length
-                : Number(resposta.numplayers || 0);
+                : Number(
+                    resposta.numplayers ||
+                    resposta.raw?.numplayers ||
+                    0
+                );
+
 
         const maxplayers =
-            Number(resposta.maxplayers || 32);
+            Number(
+                resposta.maxplayers ||
+                resposta.raw?.maxplayers ||
+                32
+            );
+
 
         const mapa =
             resposta.map ||
             resposta.raw?.map ||
             resposta.raw?.mapname ||
+            resposta.raw?.mapname ||
             "-";
 
-        console.log("");
-        console.log("RESULTADO:");
+
+        const hostname =
+            resposta.name ||
+            resposta.hostname ||
+            resposta.raw?.hostname ||
+            servidor.nome;
+
+
         console.log(`ONLINE: SIM`);
         console.log(`JOGADORES: ${jogadores}`);
         console.log(`SLOTS: ${maxplayers}`);
         console.log(`MAPA: ${mapa}`);
 
+
         return {
 
             nome: servidor.nome,
+
             ip: servidor.ip,
+
             port: servidor.port,
 
             online: true,
@@ -89,12 +112,9 @@ async function consultarServidor(servidor) {
 
             map: mapa,
 
-            hostname:
-                resposta.name ||
-                servidor.nome,
+            hostname: hostname,
 
-            ping:
-                resposta.ping || null,
+            erro: null,
 
             atualizado:
                 new Date().toISOString()
@@ -103,21 +123,30 @@ async function consultarServidor(servidor) {
 
     } catch (erro) {
 
-        console.log("");
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        console.log("FALHA NA CONSULTA");
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        const mensagem =
+            erro?.message ||
+            String(erro);
 
-        console.log(
-            erro.stack ||
-            erro.message ||
-            erro
-        );
+
+        console.log("");
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        console.log(`FALHA - ${servidor.ip}:${servidor.port}`);
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        console.log(mensagem);
+
+
+        if (erro?.stack) {
+            console.log(erro.stack);
+        }
+
 
         return {
 
             nome: servidor.nome,
+
             ip: servidor.ip,
+
             port: servidor.port,
 
             online: false,
@@ -130,11 +159,7 @@ async function consultarServidor(servidor) {
 
             hostname: servidor.nome,
 
-            ping: null,
-
-            erro:
-                erro.message ||
-                "Falha na consulta UDP",
+            erro: mensagem,
 
             atualizado:
                 new Date().toISOString()
@@ -149,6 +174,7 @@ async function main() {
 
     const resultados = [];
 
+
     for (const servidor of servidores) {
 
         const resultado =
@@ -157,7 +183,9 @@ async function main() {
             );
 
         resultados.push(resultado);
+
     }
+
 
     const arquivo = {
 
@@ -168,6 +196,7 @@ async function main() {
             resultados
 
     };
+
 
     fs.writeFileSync(
 
@@ -181,10 +210,11 @@ async function main() {
 
     );
 
+
     console.log("");
-    console.log("======================================");
+    console.log("========================================");
     console.log("STATUS FINAL");
-    console.log("======================================");
+    console.log("========================================");
 
     console.log(
         JSON.stringify(
@@ -193,6 +223,7 @@ async function main() {
             2
         )
     );
+
 }
 
 
