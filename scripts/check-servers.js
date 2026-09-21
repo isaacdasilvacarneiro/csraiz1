@@ -14,15 +14,14 @@ const servidores = [
     }
 ];
 
-
 async function consultarServidor(servidor) {
 
+    console.log("");
+    console.log("======================================");
+    console.log(`TESTANDO ${servidor.ip}:${servidor.port}`);
+    console.log("======================================");
+
     try {
-
-        console.log(
-            `Consultando ${servidor.ip}:${servidor.port}...`
-        );
-
 
         const resposta = await Gamedig.query({
 
@@ -32,59 +31,54 @@ async function consultarServidor(servidor) {
 
             port: servidor.port,
 
-            socketTimeout: 10000
+            givenPortOnly: true,
+
+            socketTimeout: 15000,
+
+            attemptTimeout: 20000,
+
+            maxAttempts: 3,
+
+            debug: true
 
         });
 
+        console.log("");
+        console.log("RESPOSTA DO GAMEDIG:");
 
         console.log(
-            `Resposta ${servidor.port}:`,
-            JSON.stringify(resposta, null, 2)
+            JSON.stringify(
+                resposta,
+                null,
+                2
+            )
         );
-
-
-        /*
-         * Se o GameDig respondeu, o servidor está ONLINE.
-         */
 
         const jogadores =
             Array.isArray(resposta.players)
                 ? resposta.players.length
-                : Number(
-                    resposta.raw?.numplayers ??
-                    resposta.numplayers ??
-                    0
-                );
-
+                : Number(resposta.numplayers || 0);
 
         const maxplayers =
-            Number(
-                resposta.maxplayers ??
-                resposta.raw?.maxplayers ??
-                32
-            );
-
+            Number(resposta.maxplayers || 32);
 
         const mapa =
-            resposta.map ??
-            resposta.raw?.map ??
-            resposta.raw?.mapname ??
+            resposta.map ||
+            resposta.raw?.map ||
+            resposta.raw?.mapname ||
             "-";
 
-
-        const hostname =
-            resposta.name ??
-            resposta.hostname ??
-            resposta.raw?.hostname ??
-            servidor.nome;
-
+        console.log("");
+        console.log("RESULTADO:");
+        console.log(`ONLINE: SIM`);
+        console.log(`JOGADORES: ${jogadores}`);
+        console.log(`SLOTS: ${maxplayers}`);
+        console.log(`MAPA: ${mapa}`);
 
         return {
 
             nome: servidor.nome,
-
             ip: servidor.ip,
-
             port: servidor.port,
 
             online: true,
@@ -95,30 +89,35 @@ async function consultarServidor(servidor) {
 
             map: mapa,
 
-            hostname: hostname,
+            hostname:
+                resposta.name ||
+                servidor.nome,
 
-            atualizado: new Date().toISOString()
+            ping:
+                resposta.ping || null,
+
+            atualizado:
+                new Date().toISOString()
 
         };
 
-
     } catch (erro) {
 
-        console.log(
-            `ERRO ao consultar ${servidor.ip}:${servidor.port}`
-        );
+        console.log("");
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        console.log("FALHA NA CONSULTA");
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         console.log(
-            erro.message || erro
+            erro.stack ||
+            erro.message ||
+            erro
         );
-
 
         return {
 
             nome: servidor.nome,
-
             ip: servidor.ip,
-
             port: servidor.port,
 
             online: false,
@@ -131,12 +130,18 @@ async function consultarServidor(servidor) {
 
             hostname: servidor.nome,
 
-            atualizado: new Date().toISOString()
+            ping: null,
+
+            erro:
+                erro.message ||
+                "Falha na consulta UDP",
+
+            atualizado:
+                new Date().toISOString()
 
         };
 
     }
-
 }
 
 
@@ -144,16 +149,15 @@ async function main() {
 
     const resultados = [];
 
-
     for (const servidor of servidores) {
 
         const resultado =
-            await consultarServidor(servidor);
+            await consultarServidor(
+                servidor
+            );
 
         resultados.push(resultado);
-
     }
-
 
     const arquivo = {
 
@@ -164,7 +168,6 @@ async function main() {
             resultados
 
     };
-
 
     fs.writeFileSync(
 
@@ -178,11 +181,10 @@ async function main() {
 
     );
 
-
-    console.log(
-        "STATUS FINAL:"
-    );
-
+    console.log("");
+    console.log("======================================");
+    console.log("STATUS FINAL");
+    console.log("======================================");
 
     console.log(
         JSON.stringify(
@@ -191,7 +193,6 @@ async function main() {
             2
         )
     );
-
 }
 
 
