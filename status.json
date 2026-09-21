@@ -1,5 +1,5 @@
 {
-  "atualizado": "2026-09-21T17:04:10.804Z",
+  "atualizado": "2026-09-21T17:18:37.761Z",
   "servidores": [
     {
       "nome": "DE_INFERNO 24/7 | VANILLA",
@@ -10,7 +10,7 @@
       "maxplayers": 32,
       "map": "-",
       "hostname": "DE_INFERNO 24/7 | VANILLA",
-      "atualizado": "2026-09-21T17:04:10.803Z"
+      "atualizado": "2026-09-21T17:18:37.761Z"
     },
     {
       "nome": "DE_DUST2 24/7 | VANILLA",
@@ -21,7 +21,7 @@
       "maxplayers": 32,
       "map": "-",
       "hostname": "DE_DUST2 24/7 | VANILLA",
-      "atualizado": "2026-09-21T17:04:10.804Z"
+      "atualizado": "2026-09-21T17:18:37.761Z"
     }
   ]
 }
