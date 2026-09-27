@@ -2,1045 +2,1888 @@
 <html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aluguel de Servidor CS 1.6 no Brasil | Host Counter-Strike 1.6 | CSRaiz</title>
+
+    <meta name="description"
+        content="Alugue seu servidor de CS 1.6 no Brasil com a CSRaiz. Planos de 10 a 32 slots, painel GameAP, FastDL compartilhado, ReHLDS e AMX Mod X.">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="author" content="CSRaiz">
+
+    <link rel="canonical" href="https://csraiz.xyz/">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title"
+        content="Aluguel de Servidor CS 1.6 no Brasil | CSRaiz">
+    <meta property="og:description"
+        content="Hospede seu servidor de Counter-Strike 1.6 com a CSRaiz. Planos de 10 a 32 slots, painel GameAP e FastDL compartilhado.">
+    <meta property="og:url" content="https://csraiz.xyz/">
+    <meta property="og:site_name" content="CSRaiz">
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b10;
+            color: #eeeeee;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --orange: #ff9800;
+            --orange-light: #ffab2e;
+            --background: #080b10;
+            --background-2: #0b0f15;
+            --card: #10151c;
+            --card-hover: #141b24;
+            --border: #222a34;
+            --text: #eeeeee;
+            --muted: #9ca3af;
+            --green: #25d366;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* ==================================================
+           HEADER
+        ================================================== */
 
-<meta charset="UTF-8">
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            background: rgba(8, 11, 16, 0.96);
 
-<title>CSRaiz — Servidores de Counter-Strike 1.6 | CS 1.6</title>
+            border-bottom: 1px solid var(--border);
 
-<link rel="icon" type="image/png" href="csraiz.png">
+            backdrop-filter: blur(10px);
+        }
 
-<meta
-name="description"
-content="CSRaiz — servidores brasileiros de Counter-Strike 1.6. CS 1.6 clássico, vanilla, competitivo e sem poluição de plugins. Confira nossos servidores online.">
+        .header-inner {
+            min-height: 70px;
 
-<meta
-name="robots"
-content="index, follow">
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-<meta
-name="author"
-content="CSRaiz">
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
 
-<meta
-name="keywords"
-content="CSRaiz, CS 1.6, Counter-Strike 1.6, servidores CS 1.6, servidor CS 1.6, servidores brasileiros CS 1.6, CS 1.6 Brasil, Counter Strike 1.6 Brasil, servidor vanilla CS 1.6, servidor competitivo CS 1.6">
+        .logo span {
+            color: var(--orange);
+        }
 
-<link
-rel="canonical"
-href="https://csraiz.xyz/">
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
 
-<!-- Open Graph -->
+        .nav a {
+            color: #c9c9c9;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
 
-<meta
-property="og:type"
-content="website">
+        .nav a:hover {
+            color: var(--orange);
+        }
 
-<meta
-property="og:title"
-content="CSRaiz — Servidores de Counter-Strike 1.6">
+        .nav-whatsapp {
+            background: var(--green);
+            color: #071008 !important;
 
-<meta
-property="og:description"
-content="Servidores brasileiros de CS 1.6 clássico, vanilla e competitivo. O bom e velho Counter-Strike 1.6.">
+            padding: 9px 15px;
 
-<meta
-property="og:url"
-content="https://csraiz.xyz/">
+            border-radius: 6px;
 
-<meta
-property="og:site_name"
-content="CSRaiz">
+            font-weight: 900 !important;
+        }
 
+        .nav-whatsapp:hover {
+            color: #071008 !important;
+            opacity: 0.9;
+        }
 
-<style>
+        .menu-button {
+            display: none;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            background: transparent;
+            border: none;
 
-html {
-    scroll-behavior: smooth;
-}
+            color: white;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #080b10;
-    color: #fff;
-    line-height: 1.6;
-}
+            font-size: 28px;
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+            cursor: pointer;
+        }
 
+        /* ==================================================
+           HERO
+        ================================================== */
 
-/* HEADER */
+        .hero {
+            padding: 110px 0 95px;
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+            text-align: center;
 
-    background: rgba(8, 11, 16, 0.97);
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255, 152, 0, 0.14),
+                    transparent 48%
+                );
+        }
 
-    border-bottom: 1px solid #202833;
+        .hero-label {
+            display: inline-block;
 
-    backdrop-filter: blur(8px);
-}
+            padding: 7px 14px;
 
-.header-container {
-    max-width: 1100px;
+            border: 1px solid rgba(255, 152, 0, 0.3);
 
-    margin: auto;
+            background: rgba(255, 152, 0, 0.08);
 
-    padding: 16px 20px;
+            border-radius: 30px;
 
-    display: flex;
+            color: var(--orange);
 
-    align-items: center;
+            font-size: 12px;
 
-    justify-content: space-between;
-}
+            font-weight: 900;
 
-.logo {
-    font-size: 25px;
+            margin-bottom: 22px;
+        }
 
-    font-weight: 900;
+        .hero h1 {
+            max-width: 900px;
 
-    letter-spacing: 1px;
-}
+            margin: auto;
 
-.logo span {
-    color: #ff9800;
-}
+            font-size: clamp(35px, 6vw, 64px);
 
-nav {
-    display: flex;
+            line-height: 1.05;
 
-    gap: 25px;
-}
+            letter-spacing: -2px;
 
-nav a {
-    color: #b8c1cc;
+            font-weight: 900;
+        }
 
-    font-size: 14px;
+        .hero h1 span {
+            color: var(--orange);
+        }
 
-    transition: .2s;
-}
+        .hero p {
+            max-width: 700px;
 
-nav a:hover {
-    color: #ff9800;
-}
+            margin: 25px auto 0;
 
+            color: var(--muted);
 
-/* HERO */
+            font-size: 18px;
+        }
 
-.hero {
-    min-height: 470px;
+        .hero-buttons {
+            margin-top: 34px;
 
-    display: flex;
+            display: flex;
 
-    align-items: center;
+            justify-content: center;
 
-    justify-content: center;
+            gap: 12px;
 
-    text-align: center;
+            flex-wrap: wrap;
+        }
 
-    padding: 80px 20px;
+        .button {
+            display: inline-flex;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #18222e 0%,
-            #080b10 65%
-        );
-}
+            align-items: center;
 
-.hero-content {
-    max-width: 800px;
-}
+            justify-content: center;
 
-.hero h1 {
-    font-size: clamp(48px, 9vw, 82px);
+            min-height: 48px;
 
-    font-weight: 900;
+            padding: 13px 23px;
 
-    letter-spacing: -4px;
+            border-radius: 7px;
 
-    margin-bottom: 15px;
-}
+            font-size: 14px;
 
-.hero h1 span {
-    color: #ff9800;
-}
+            font-weight: 900;
 
-.hero p {
-    color: #aeb7c2;
+            transition: 0.2s;
+        }
 
-    font-size: 19px;
+        .button-orange {
+            background: var(--orange);
 
-    max-width: 650px;
+            color: #111;
+        }
 
-    margin: auto auto 30px;
-}
+        .button-orange:hover {
+            background: var(--orange-light);
 
-.hero-button {
-    display: inline-block;
+            transform: translateY(-2px);
+        }
 
-    background: #ff9800;
+        .button-whatsapp {
+            background: var(--green);
 
-    color: #111;
+            color: #071008;
+        }
 
-    padding: 13px 27px;
+        .button-whatsapp:hover {
+            opacity: 0.9;
 
-    border-radius: 6px;
+            transform: translateY(-2px);
+        }
 
-    font-weight: 800;
+        .button-dark {
+            background: #0c1016;
 
-    transition: .2s;
-}
+            border: 1px solid var(--border);
 
-.hero-button:hover {
-    background: #ffb52e;
+            color: #ddd;
+        }
 
-    transform: translateY(-2px);
-}
+        .button-dark:hover {
+            border-color: var(--orange);
 
+            color: var(--orange);
+        }
 
-/* CONTAINER */
+        /* ==================================================
+           SECTIONS
+        ================================================== */
 
-.container {
-    max-width: 1000px;
+        section {
+            padding: 85px 0;
+        }
 
-    margin: auto;
+        .section-title {
+            text-align: center;
 
-    padding: 70px 20px;
-}
+            margin-bottom: 45px;
+        }
 
-section {
-    scroll-margin-top: 80px;
-}
+        .section-title h2 {
+            font-size: clamp(29px, 4vw, 42px);
 
-.section-title {
-    text-align: center;
+            line-height: 1.1;
 
-    margin-bottom: 35px;
-}
+            margin-bottom: 10px;
+        }
 
-.section-title h2 {
-    font-size: 32px;
+        .section-title p {
+            max-width: 680px;
 
-    margin-bottom: 8px;
-}
+            margin: auto;
 
-.section-title p {
-    color: #7f8b99;
-}
+            color: var(--muted);
+        }
 
+        /* ==================================================
+           PLANOS
+        ================================================== */
 
-/* SOBRE */
+        #planos {
+            background: var(--background-2);
+        }
 
-.about {
-    max-width: 800px;
+        .plans {
+            display: grid;
 
-    margin: auto;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
-    text-align: center;
-}
+            gap: 18px;
+        }
 
-.about p {
-    color: #aeb7c2;
+        .plan {
+            display: flex;
 
-    font-size: 17px;
+            flex-direction: column;
 
-    margin-bottom: 18px;
-}
+            background: var(--card);
 
-.about strong {
-    color: #ff9800;
-}
+            border: 1px solid var(--border);
 
-.principles {
-    display: grid;
+            border-radius: 10px;
 
-    grid-template-columns: repeat(3, 1fr);
+            padding: 28px 24px;
 
-    gap: 18px;
+            transition: 0.2s;
+        }
 
-    margin-top: 40px;
-}
+        .plan:hover {
+            transform: translateY(-4px);
 
-.principle {
-    background: #111720;
+            border-color: rgba(255, 152, 0, 0.55);
 
-    border: 1px solid #202a36;
+            background: var(--card-hover);
+        }
 
-    border-radius: 8px;
+        .plan.highlight {
+            border-color: var(--orange);
 
-    padding: 25px 18px;
-}
+            box-shadow:
+                0 0 30px rgba(255, 152, 0, 0.08);
+        }
 
-.principle h3 {
-    color: #fff;
+        .plan-label {
+            color: var(--orange);
 
-    margin-bottom: 8px;
+            font-size: 13px;
 
-    font-size: 17px;
-}
+            font-weight: 900;
 
-.principle p {
-    color: #7f8b99;
+            text-transform: uppercase;
 
-    font-size: 14px;
-}
+            margin-bottom: 5px;
+        }
 
+        .plan-slots {
+            font-size: 29px;
 
-/* SERVIDORES */
+            font-weight: 900;
+        }
 
-.servers-section {
-    border-top: 1px solid #161d26;
-}
+        .price {
+            margin: 17px 0 22px;
+        }
 
-.server-list {
-    display: flex;
+        .price strong {
+            font-size: 34px;
+        }
 
-    flex-direction: column;
+        .price small {
+            color: var(--muted);
 
-    gap: 14px;
+            font-size: 13px;
+        }
 
-    max-width: 700px;
+        .plan-features {
+            list-style: none;
 
-    margin: 30px auto 0;
-}
+            border-top: 1px solid var(--border);
 
-.server-card {
-    background: #111720;
+            padding-top: 20px;
 
-    border: 1px solid #202a36;
+            margin-bottom: 25px;
+        }
 
-    border-radius: 8px;
+        .plan-features li {
+            color: #c6cad0;
 
-    padding: 20px;
+            font-size: 14px;
 
-    transition: .2s;
-}
+            margin-bottom: 10px;
+        }
 
-.server-card:hover {
-    border-color: #344150;
-}
+        .plan-features li::before {
+            content: "✓";
 
-.server-top {
-    display: flex;
+            color: var(--green);
 
-    align-items: center;
+            font-weight: 900;
 
-    justify-content: space-between;
+            margin-right: 9px;
+        }
 
-    gap: 15px;
-}
+        .plan .button {
+            width: 100%;
 
-.server-info h3 {
-    color: #fff;
+            margin-top: auto;
+        }
 
-    font-size: 17px;
+        /* ==================================================
+           RECURSOS
+        ================================================== */
 
-    margin-bottom: 4px;
-}
+        .resources {
+            display: grid;
 
-.server-address {
-    color: #687482;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
-    font-size: 13px;
-}
+            gap: 18px;
+        }
 
-.server-status {
-    display: flex;
+        .resource {
+            background: var(--card);
 
-    align-items: center;
+            border: 1px solid var(--border);
 
-    gap: 7px;
+            border-radius: 10px;
 
-    font-size: 12px;
+            padding: 27px;
+        }
 
-    font-weight: 800;
+        .resource-icon {
+            width: 43px;
 
-    white-space: nowrap;
-}
+            height: 43px;
 
-.status-dot {
-    width: 9px;
+            display: flex;
 
-    height: 9px;
+            align-items: center;
 
-    border-radius: 50%;
+            justify-content: center;
 
-    background: #777;
-}
+            border-radius: 8px;
 
+            background: rgba(255, 152, 0, 0.1);
 
-/* ONLINE */
+            color: var(--orange);
 
-.server-card.online .status-dot {
-    background: #25D366;
-}
+            font-size: 20px;
 
-.server-card.online .server-status {
-    color: #25D366;
-}
+            margin-bottom: 17px;
+        }
 
+        .resource h3 {
+            font-size: 17px;
 
-/* OFFLINE */
+            margin-bottom: 7px;
+        }
 
-.server-card.offline .status-dot {
-    background: #e53935;
-}
+        .resource p {
+            color: var(--muted);
 
-.server-card.offline .server-status {
-    color: #e53935;
-}
+            font-size: 14px;
+        }
 
+        /* ==================================================
+           COMO FUNCIONA
+        ================================================== */
 
-/* ERRO */
+        #como-funciona {
+            background: var(--background-2);
+        }
 
-.server-card.error .status-dot {
-    background: #ff9800;
-}
+        .steps {
+            display: grid;
 
-.server-card.error .server-status {
-    color: #ff9800;
-}
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
+            gap: 20px;
+        }
 
-.server-details {
-    display: flex;
+        .step {
+            text-align: center;
 
-    gap: 20px;
+            padding: 25px;
+        }
 
-    margin-top: 14px;
+        .step-number {
+            width: 52px;
 
-    color: #7f8b99;
+            height: 52px;
 
-    font-size: 13px;
-}
+            display: flex;
 
-.server-description {
-    max-width: 700px;
+            align-items: center;
 
-    margin: 25px auto 0;
+            justify-content: center;
 
-    text-align: center;
+            margin: auto auto 17px;
 
-    color: #747f8c;
+            border-radius: 50%;
 
-    font-size: 13px;
-}
+            background: var(--orange);
 
+            color: #111;
 
-/* CONTATO */
+            font-size: 20px;
 
-.contact-section {
-    border-top: 1px solid #161d26;
-}
+            font-weight: 900;
+        }
 
-.contact {
-    max-width: 600px;
+        .step h3 {
+            margin-bottom: 8px;
+        }
 
-    margin: auto;
+        .step p {
+            color: var(--muted);
 
-    text-align: center;
-}
+            font-size: 14px;
+        }
 
-.contact p {
-    color: #aeb7c2;
+        /* ==================================================
+           SEO
+        ================================================== */
 
-    margin-bottom: 25px;
-}
+        .seo-content {
+            max-width: 850px;
 
-.whatsapp-button {
-    display: inline-flex;
+            margin: auto;
 
-    align-items: center;
+            background: var(--card);
 
-    justify-content: center;
+            border: 1px solid var(--border);
 
-    gap: 9px;
+            border-radius: 10px;
 
-    background: #25D366;
+            padding: 30px;
+        }
 
-    color: #fff;
+        .seo-content h2 {
+            font-size: 25px;
 
-    padding: 13px 25px;
+            margin-bottom: 15px;
+        }
 
-    border-radius: 6px;
+        .seo-content h3 {
+            font-size: 18px;
 
-    font-weight: 800;
+            margin-top: 22px;
 
-    transition: .2s;
-}
+            margin-bottom: 7px;
+        }
 
-.whatsapp-button:hover {
-    transform: translateY(-2px);
+        .seo-content p {
+            color: var(--muted);
 
-    filter: brightness(1.08);
-}
+            font-size: 15px;
+        }
 
+        /* ==================================================
+           FAQ
+        ================================================== */
 
-/* FOOTER */
+        .faq {
+            max-width: 850px;
 
-footer {
-    border-top: 1px solid #202833;
+            margin: auto;
+        }
 
-    background: #06080c;
+        details {
+            background: var(--card);
 
-    padding: 30px 20px;
+            border: 1px solid var(--border);
 
-    text-align: center;
+            border-radius: 8px;
 
-    color: #687482;
+            margin-bottom: 10px;
+        }
 
-    font-size: 13px;
-}
+        summary {
+            cursor: pointer;
 
-footer strong {
-    color: #ff9800;
-}
+            padding: 19px 20px;
 
+            font-weight: 800;
 
-/* MOBILE */
+            list-style: none;
+        }
 
-@media (max-width: 700px) {
+        summary::-webkit-details-marker {
+            display: none;
+        }
 
-    .header-container {
-        justify-content: center;
-    }
+        summary::after {
+            content: "+";
 
-    nav {
-        display: none;
-    }
+            float: right;
 
-    .hero {
-        min-height: 400px;
-    }
+            color: var(--orange);
 
-    .hero h1 {
-        letter-spacing: -2px;
-    }
+            font-size: 20px;
+        }
 
-    .hero p {
-        font-size: 16px;
-    }
+        details[open] summary::after {
+            content: "−";
+        }
 
-    .principles {
-        grid-template-columns: 1fr;
-    }
+        details p {
+            padding: 0 20px 20px;
 
-    .section-title h2 {
-        font-size: 27px;
-    }
+            color: var(--muted);
 
-    .server-top {
-        align-items: flex-start;
+            font-size: 14px;
+        }
 
-        flex-direction: column;
+        /* ==================================================
+           CONTATO
+        ================================================== */
 
-        gap: 10px;
-    }
+        .contact {
+            text-align: center;
 
-}
+            background:
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(255, 152, 0, 0.1),
+                    transparent 45%
+                );
+        }
 
-</style>
+        .contact h2 {
+            font-size: clamp(30px, 5vw, 45px);
 
+            margin-bottom: 12px;
+        }
 
-<!-- DADOS ESTRUTURADOS -->
+        .contact p {
+            max-width: 620px;
 
-<script type="application/ld+json">
+            margin: auto auto 28px;
 
-{
-    "@context": "https://schema.org",
+            color: var(--muted);
+        }
 
-    "@type": "WebSite",
+        .whatsapp-number {
+            margin-top: 16px;
 
-    "name": "CSRaiz",
+            color: #aaa;
 
-    "url": "https://csraiz.xyz/",
+            font-size: 14px;
+        }
 
-    "description":
-        "Servidores brasileiros de Counter-Strike 1.6 clássicos, vanilla e competitivos."
-}
+        /* ==================================================
+           FOOTER
+        ================================================== */
 
-</script>
+        footer {
+            border-top: 1px solid var(--border);
 
+            padding: 30px 0;
 
-<script type="application/ld+json">
+            text-align: center;
 
-{
-    "@context": "https://schema.org",
+            color: #777;
 
-    "@type": "Organization",
+            font-size: 13px;
+        }
 
-    "name": "CSRaiz",
+        footer strong {
+            color: #aaa;
+        }
 
-    "url": "https://csraiz.xyz/",
+        /* ==================================================
+           RESPONSIVIDADE TABLET
+        ================================================== */
 
-    "description":
-        "Comunidade e servidores brasileiros de Counter-Strike 1.6."
-}
+        @media (max-width: 900px) {
 
-</script>
+            .plans,
+            .resources,
+            .steps {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
 
+        }
 
+        /* ==================================================
+           RESPONSIVIDADE CELULAR
+        ================================================== */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 90%;
+            }
+
+            header {
+                position: sticky;
+            }
+
+            .header-inner {
+                min-height: 64px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav {
+                display: none;
+
+                position: absolute;
+
+                top: 64px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: #080b10;
+
+                border-bottom: 1px solid var(--border);
+
+                padding: 12px 5%;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .nav a {
+                display: block;
+
+                padding: 14px 0;
+
+                border-bottom: 1px solid #151b22;
+            }
+
+            .nav a:last-child {
+                border-bottom: none;
+            }
+
+            .nav-whatsapp {
+                text-align: center;
+
+                margin: 8px 0;
+            }
+
+            .hero {
+                padding: 75px 0 70px;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+
+                letter-spacing: -1.5px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .hero-buttons .button {
+                width: 100%;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .plans,
+            .resources,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                margin-bottom: 32px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .plan {
+                padding: 25px 21px;
+            }
+
+            .seo-content {
+                padding: 23px;
+            }
+
+            .contact h2 {
+                font-size: 31px;
+            }
+
+        }
+
+        /* ==================================================
+           CELULARES PEQUENOS
+        ================================================== */
+
+        @media (max-width: 380px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .button {
+                padding: 13px 18px;
+            }
+
+        }
+
+    </style>
 </head>
-
 
 <body>
 
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
 
-<!-- HEADER -->
+    <header>
 
-<header>
+        <div class="container header-inner">
 
-    <div class="header-container">
-
-        <a
-            href="#inicio"
-            class="logo"
-            aria-label="CSRaiz - página inicial">
-
-            CS<span>Raiz</span>
-
-        </a>
-
-
-        <nav aria-label="Navegação principal">
-
-            <a href="#sobre">
-                Sobre
+            <a href="#inicio" class="logo">
+                CS<span>Raiz</span>
             </a>
 
-            <a href="#servidores">
-                Servidores
-            </a>
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Abrir menu">
+                ☰
+            </button>
 
-            <a href="#contato">
-                Contato
-            </a>
+            <nav class="nav" id="nav">
 
-        </nav>
+                <a href="#inicio">Início</a>
 
-    </div>
+                <a href="#planos">Planos</a>
 
-</header>
+                <a href="#recursos">Recursos</a>
 
+                <a href="#como-funciona">Como funciona</a>
 
-<!-- INÍCIO -->
+                <a href="#faq">FAQ</a>
 
-<section
-    class="hero"
-    id="inicio">
+                <a
+                    class="nav-whatsapp"
+                    href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Quero%20alugar%20um%20servidor%20de%20CS%201.6."
+                    target="_blank"
+                    rel="noopener">
+                    WhatsApp
+                </a>
 
-    <div class="hero-content">
-
-        <h1>
-            CS<span>Raiz</span>
-        </h1>
-
-        <p>
-            Servidores brasileiros de Counter-Strike 1.6.
-            O bom e velho CS, do jeito que sempre deveria ser.
-        </p>
-
-        <a
-            href="#servidores"
-            class="hero-button">
-
-            Ver servidores CS 1.6
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<main>
-
-
-<!-- SOBRE -->
-
-<section id="sobre">
-
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>
-                O que é o CSRaiz?
-            </h2>
-
-            <p>
-                Counter-Strike 1.6 como nos velhos tempos.
-            </p>
+            </nav>
 
         </div>
 
-
-        <div class="about">
-
-            <p>
-                O <strong>CSRaiz</strong>
-                nasceu com uma ideia simples:
-                preservar a experiência do bom e velho
-                <strong>Counter-Strike 1.6</strong>.
-            </p>
+    </header>
 
 
-            <p>
-                Aqui a prioridade é a
-                <strong>originalidade</strong>.
-                Nada de servidores carregados de plugins,
-                efeitos exagerados ou sistemas que tiram
-                a essência do jogo.
-            </p>
+    <main>
 
+        <!-- ==================================================
+             HERO
+        ================================================== -->
 
-            <p>
-                Criamos servidores de
-                <strong>CS 1.6 vanilla</strong>,
-                buscando manter o jogo simples,
-                direto e divertido.
-            </p>
+        <section class="hero" id="inicio">
 
+            <div class="container">
 
-            <p>
-                A prioridade é a jogabilidade,
-                a competitividade e a experiência
-                clássica que marcou o Counter-Strike 1.6.
-            </p>
-
-
-            <div class="principles">
-
-
-                <div class="principle">
-
-                    <h3>
-                        🎯 Originalidade
-                    </h3>
-
-                    <p>
-                        A essência do CS 1.6 acima de tudo.
-                    </p>
-
+                <div class="hero-label">
+                    HOST DE COUNTER-STRIKE 1.6
                 </div>
 
+                <h1>
+                    Alugue seu
+                    <span>servidor CS 1.6</span>
+                </h1>
 
-                <div class="principle">
+                <p>
+                    Hospedagem de servidores de Counter-Strike 1.6
+                    com planos de 10 a 32 slots, painel GameAP
+                    e FastDL compartilhado.
+                </p>
 
-                    <h3>
-                        ⚡ Competitivo
-                    </h3>
+                <div class="hero-buttons">
 
-                    <p>
-                        Jogabilidade limpa e focada na partida.
-                    </p>
+                    <a
+                        href="#planos"
+                        class="button button-orange">
+                        Ver planos
+                    </a>
+
+                    <a
+                        href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20hospedagem%20de%20CS%201.6."
+                        target="_blank"
+                        rel="noopener"
+                        class="button button-whatsapp">
+                        Falar pelo WhatsApp
+                    </a>
 
                 </div>
-
-
-                <div class="principle">
-
-                    <h3>
-                        🔇 Sem poluição
-                    </h3>
-
-                    <p>
-                        Sem excesso de plugins,
-                        sons ou efeitos.
-                    </p>
-
-                </div>
-
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
-<!-- SERVIDORES -->
+        <!-- ==================================================
+             PLANOS
+        ================================================== -->
 
-<section
-    id="servidores"
-    class="servers-section">
+        <section id="planos">
 
-    <div class="container">
+            <div class="container">
 
+                <div class="section-title">
 
-        <div class="section-title">
+                    <h2>
+                        Planos de servidor CS 1.6
+                    </h2>
 
-            <h2>
-                Servidores de Counter-Strike 1.6
-            </h2>
+                    <p>
+                        Escolha a quantidade de slots que você precisa
+                        e entre em contato pelo WhatsApp para contratar.
+                    </p>
 
-            <p>
-                Servidores brasileiros CS 1.6
-                para jogar o clássico.
-            </p>
-
-        </div>
-
-
-        <div class="server-list">
+                </div>
 
 
-            <!-- DE_INFERNO -->
+                <div class="plans">
 
-            <div
-                class="server-card online"
-                data-port="27029">
 
-                <div class="server-top">
+                    <!-- 10 SLOTS -->
 
-                    <div class="server-info">
+                    <article class="plan">
+
+                        <div class="plan-label">
+                            CS 1.6
+                        </div>
+
+                        <div class="plan-slots">
+                            10 Slots
+                        </div>
+
+                        <div class="price">
+                            <strong>R$ 24,90</strong>
+                            <small>/mês</small>
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li>Painel GameAP</li>
+
+                            <li>FastDL compartilhado</li>
+
+                            <li>ReHLDS</li>
+
+                            <li>AMX Mod X</li>
+
+                            <li>Servidor 24 horas</li>
+
+                        </ul>
+
+                        <a
+                            class="button button-orange"
+                            target="_blank"
+                            rel="noopener"
+                            href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servidor%20CS%201.6%20de%2010%20slots%20por%20R%24%2024%2C90%2Fm%C3%AAs.">
+
+                            Contratar pelo WhatsApp
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- 12 SLOTS -->
+
+                    <article class="plan">
+
+                        <div class="plan-label">
+                            CS 1.6
+                        </div>
+
+                        <div class="plan-slots">
+                            12 Slots
+                        </div>
+
+                        <div class="price">
+                            <strong>R$ 29,90</strong>
+                            <small>/mês</small>
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li>Painel GameAP</li>
+
+                            <li>FastDL compartilhado</li>
+
+                            <li>ReHLDS</li>
+
+                            <li>AMX Mod X</li>
+
+                            <li>Servidor 24 horas</li>
+
+                        </ul>
+
+                        <a
+                            class="button button-orange"
+                            target="_blank"
+                            rel="noopener"
+                            href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servidor%20CS%201.6%20de%2012%20slots%20por%20R%24%2029%2C90%2Fm%C3%AAs.">
+
+                            Contratar pelo WhatsApp
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- 16 SLOTS -->
+
+                    <article class="plan highlight">
+
+                        <div class="plan-label">
+                            Mais procurado
+                        </div>
+
+                        <div class="plan-slots">
+                            16 Slots
+                        </div>
+
+                        <div class="price">
+                            <strong>R$ 39,90</strong>
+                            <small>/mês</small>
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li>Painel GameAP</li>
+
+                            <li>FastDL compartilhado</li>
+
+                            <li>ReHLDS</li>
+
+                            <li>AMX Mod X</li>
+
+                            <li>Servidor 24 horas</li>
+
+                        </ul>
+
+                        <a
+                            class="button button-orange"
+                            target="_blank"
+                            rel="noopener"
+                            href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servidor%20CS%201.6%20de%2016%20slots%20por%20R%24%2039%2C90%2Fm%C3%AAs.">
+
+                            Contratar pelo WhatsApp
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- 20 SLOTS -->
+
+                    <article class="plan">
+
+                        <div class="plan-label">
+                            CS 1.6
+                        </div>
+
+                        <div class="plan-slots">
+                            20 Slots
+                        </div>
+
+                        <div class="price">
+                            <strong>R$ 49,90</strong>
+                            <small>/mês</small>
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li>Painel GameAP</li>
+
+                            <li>FastDL compartilhado</li>
+
+                            <li>ReHLDS</li>
+
+                            <li>AMX Mod X</li>
+
+                            <li>Servidor 24 horas</li>
+
+                        </ul>
+
+                        <a
+                            class="button button-orange"
+                            target="_blank"
+                            rel="noopener"
+                            href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servidor%20CS%201.6%20de%2020%20slots%20por%20R%24%2049%2C90%2Fm%C3%AAs.">
+
+                            Contratar pelo WhatsApp
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- 24 SLOTS -->
+
+                    <article class="plan">
+
+                        <div class="plan-label">
+                            CS 1.6
+                        </div>
+
+                        <div class="plan-slots">
+                            24 Slots
+                        </div>
+
+                        <div class="price">
+                            <strong>R$ 59,90</strong>
+                            <small>/mês</small>
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li>Painel GameAP</li>
+
+                            <li>FastDL compartilhado</li>
+
+                            <li>ReHLDS</li>
+
+                            <li>AMX Mod X</li>
+
+                            <li>Servidor 24 horas</li>
+
+                        </ul>
+
+                        <a
+                            class="button button-orange"
+                            target="_blank"
+                            rel="noopener"
+                            href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servidor%20CS%201.6%20de%2024%20slots%20por%20R%24%2059%2C90%2Fm%C3%AAs.">
+
+                            Contratar pelo WhatsApp
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- 32 SLOTS -->
+
+                    <article class="plan">
+
+                        <div class="plan-label">
+                            CS 1.6
+                        </div>
+
+                        <div class="plan-slots">
+                            32 Slots
+                        </div>
+
+                        <div class="price">
+                            <strong>R$ 74,90</strong>
+                            <small>/mês</small>
+                        </div>
+
+                        <ul class="plan-features">
+
+                            <li>Painel GameAP</li>
+
+                            <li>FastDL compartilhado</li>
+
+                            <li>ReHLDS</li>
+
+                            <li>AMX Mod X</li>
+
+                            <li>Servidor 24 horas</li>
+
+                        </ul>
+
+                        <a
+                            class="button button-orange"
+                            target="_blank"
+                            rel="noopener"
+                            href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Tenho%20interesse%20no%20servidor%20CS%201.6%20de%2032%20slots%20por%20R%24%2074%2C90%2Fm%C3%AAs.">
+
+                            Contratar pelo WhatsApp
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             RECURSOS
+        ================================================== -->
+
+        <section id="recursos">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Recursos para seu servidor
+                    </h2>
+
+                    <p>
+                        Ferramentas para administrar e personalizar
+                        seu servidor de Counter-Strike 1.6.
+                    </p>
+
+                </div>
+
+
+                <div class="resources">
+
+
+                    <article class="resource">
+
+                        <div class="resource-icon">
+                            ⚙
+                        </div>
 
                         <h3>
-                            DE_INFERNO 24/7 | VANILLA
+                            Painel GameAP
                         </h3>
 
-                        <p class="server-address">
-                            188.220.169.152:27029
+                        <p>
+                            Gerencie seu servidor de CS 1.6
+                            através de um painel de administração.
                         </p>
 
-                    </div>
+                    </article>
 
 
-                    <div class="server-status">
+                    <article class="resource">
 
-                        <span class="status-dot"></span>
-
-                        <span class="status-text">
-                            ONLINE
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="server-details">
-
-                    <span class="players">
-                        Servidor online
-                    </span>
-
-                    <span class="map">
-                        -
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- DE_DUST2 -->
-
-            <div
-                class="server-card online"
-                data-port="27030">
-
-                <div class="server-top">
-
-                    <div class="server-info">
+                        <div class="resource-icon">
+                            ⚡
+                        </div>
 
                         <h3>
-                            DE_DUST2 24/7 | VANILLA
+                            FastDL compartilhado
                         </h3>
 
-                        <p class="server-address">
-                            188.220.169.152:27030
+                        <p>
+                            Utilize FastDL compartilhado para
+                            distribuir mapas, sons, modelos e outros arquivos.
                         </p>
 
-                    </div>
+                    </article>
 
 
-                    <div class="server-status">
+                    <article class="resource">
 
-                        <span class="status-dot"></span>
+                        <div class="resource-icon">
+                            🎮
+                        </div>
 
-                        <span class="status-text">
-                            ONLINE
-                        </span>
+                        <h3>
+                            ReHLDS
+                        </h3>
 
-                    </div>
+                        <p>
+                            Base moderna para hospedagem de
+                            servidores Counter-Strike 1.6.
+                        </p>
 
-                </div>
+                    </article>
 
 
-                <div class="server-details">
+                    <article class="resource">
 
-                    <span class="players">
-                        Servidor online
-                    </span>
+                        <div class="resource-icon">
+                            🔧
+                        </div>
 
-                    <span class="map">
-                        -
-                    </span>
+                        <h3>
+                            AMX Mod X
+                        </h3>
+
+                        <p>
+                            Compatibilidade com plugins e recursos
+                            para personalizar seu servidor.
+                        </p>
+
+                    </article>
+
+
+                    <article class="resource">
+
+                        <div class="resource-icon">
+                            👥
+                        </div>
+
+                        <h3>
+                            Escolha seus slots
+                        </h3>
+
+                        <p>
+                            Planos disponíveis de 10 até 32 slots
+                            para diferentes tamanhos de servidor.
+                        </p>
+
+                    </article>
+
+
+                    <article class="resource">
+
+                        <div class="resource-icon">
+                            🛠
+                        </div>
+
+                        <h3>
+                            Configuração
+                        </h3>
+
+                        <p>
+                            Configure mapas, plugins, arquivos CFG
+                            e outros recursos do seu servidor.
+                        </p>
+
+                    </article>
 
                 </div>
 
             </div>
 
+        </section>
+
+
+        <!-- ==================================================
+             COMO FUNCIONA
+        ================================================== -->
+
+        <section id="como-funciona">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Como alugar seu servidor CS 1.6?
+                    </h2>
+
+                    <p>
+                        O processo começa diretamente pelo WhatsApp.
+                    </p>
+
+                </div>
+
+
+                <div class="steps">
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Escolha seu plano
+                        </h3>
+
+                        <p>
+                            Escolha entre 10, 12, 16, 20,
+                            24 ou 32 slots.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Fale pelo WhatsApp
+                        </h3>
+
+                        <p>
+                            Envie uma mensagem para a CSRaiz
+                            informando o plano escolhido.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Configure seu servidor
+                        </h3>
+
+                        <p>
+                            Após a contratação, você poderá
+                            administrar seu servidor pelo painel.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SEO CONTENT
+        ================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="seo-content">
+
+                    <h2>
+                        Host de CS 1.6 no Brasil
+                    </h2>
+
+                    <p>
+                        A CSRaiz oferece aluguel e hospedagem de
+                        servidores de Counter-Strike 1.6 para quem
+                        deseja criar seu próprio servidor online.
+                    </p>
+
+                    <h3>
+                        Aluguel de servidor CS 1.6
+                    </h3>
+
+                    <p>
+                        Você pode escolher um plano de servidor
+                        CS 1.6 de acordo com a quantidade de jogadores
+                        que deseja suportar. Temos opções de 10 a
+                        32 slots.
+                    </p>
+
+                    <h3>
+                        Servidor Counter-Strike 1.6
+                    </h3>
+
+                    <p>
+                        Os planos são voltados exclusivamente para
+                        hospedagem de Counter-Strike 1.6, com painel
+                        GameAP, FastDL compartilhado, ReHLDS e
+                        AMX Mod X.
+                    </p>
+
+                    <h3>
+                        Host CS 1.6
+                    </h3>
+
+                    <p>
+                        Se você está procurando onde alugar um
+                        servidor de CS 1.6, escolha seu plano e
+                        entre em contato diretamente pelo WhatsApp
+                        para receber informações sobre a contratação.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             FAQ
+        ================================================== -->
+
+        <section id="faq">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Perguntas frequentes
+                    </h2>
+
+                    <p>
+                        Dúvidas comuns sobre aluguel de servidores CS 1.6.
+                    </p>
+
+                </div>
+
+
+                <div class="faq">
+
+
+                    <details>
+
+                        <summary>
+                            Onde posso alugar um servidor CS 1.6?
+                        </summary>
+
+                        <p>
+                            Você pode contratar um servidor de
+                            Counter-Strike 1.6 com a CSRaiz escolhendo
+                            um dos planos disponíveis e entrando em
+                            contato pelo WhatsApp.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Quanto custa um servidor CS 1.6?
+                        </summary>
+
+                        <p>
+                            Os planos da CSRaiz começam em R$ 24,90
+                            por mês para 10 slots e chegam a R$ 74,90
+                            por mês para 32 slots.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Quantos slots posso contratar?
+                        </summary>
+
+                        <p>
+                            Atualmente estão disponíveis planos de
+                            10, 12, 16, 20, 24 e 32 slots.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            O servidor possui painel?
+                        </summary>
+
+                        <p>
+                            Sim. Os planos contam com acesso ao
+                            painel GameAP para gerenciamento do servidor.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Posso instalar plugins no CS 1.6?
+                        </summary>
+
+                        <p>
+                            A estrutura utiliza AMX Mod X, permitindo
+                            trabalhar com plugins compatíveis com
+                            servidores de Counter-Strike 1.6.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            O que é FastDL?
+                        </summary>
+
+                        <p>
+                            FastDL é utilizado para disponibilizar
+                            arquivos que os jogadores precisam baixar
+                            ao entrar no servidor, como mapas, sons,
+                            modelos e outros arquivos.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Como faço para contratar?
+                        </summary>
+
+                        <p>
+                            Escolha o plano desejado e clique em
+                            "Contratar pelo WhatsApp". O atendimento
+                            da CSRaiz é realizado diretamente pelo WhatsApp.
+                        </p>
+
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CONTATO
+        ================================================== -->
+
+        <section class="contact" id="contato">
+
+            <div class="container">
+
+                <h2>
+                    Pronto para criar seu servidor?
+                </h2>
+
+                <p>
+                    Escolha seu plano e fale diretamente com a
+                    CSRaiz pelo WhatsApp para começar sua contratação.
+                </p>
+
+                <a
+                    href="https://wa.me/5581989084421?text=Ol%C3%A1!%20Quero%20alugar%20um%20servidor%20de%20CS%201.6%20com%20a%20CSRaiz."
+                    target="_blank"
+                    rel="noopener"
+                    class="button button-whatsapp">
+
+                    Falar pelo WhatsApp
+
+                </a>
+
+                <div class="whatsapp-number">
+                    WhatsApp: (81) 98908-4421
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <strong>CSRaiz</strong>
+            — Host e aluguel de servidores Counter-Strike 1.6.
+
+            <br>
+
+            © 2026 CSRaiz. Todos os direitos reservados.
 
         </div>
 
-
-        <p class="server-description">
-
-            O CSRaiz reúne servidores brasileiros de
-            <strong>Counter-Strike 1.6</strong>,
-            com foco em servidores vanilla,
-            simplicidade, competitividade e
-            experiência clássica.
-
-        </p>
+    </footer>
 
 
-    </div>
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
 
-</section>
+    <script>
 
+        const menuButton = document.getElementById("menuButton");
+        const nav = document.getElementById("nav");
 
-<!-- CONTATO -->
+        menuButton.addEventListener("click", function () {
 
-<section
-    id="contato"
-    class="contact-section">
+            nav.classList.toggle("active");
 
-    <div class="container">
-
-
-        <div class="section-title">
-
-            <h2>
-                Contato CSRaiz
-            </h2>
-
-            <p>
-                Fale com a comunidade.
-            </p>
-
-        </div>
+        });
 
 
-        <div class="contact">
+        /* Fecha o menu ao clicar em um link */
 
-            <p>
-                Entre em contato pelo WhatsApp
-                para tirar dúvidas, falar sobre os
-                servidores de CS 1.6 ou participar
-                da comunidade CSRaiz.
-            </p>
+        document.querySelectorAll(".nav a").forEach(function (link) {
 
+            link.addEventListener("click", function () {
 
-            <a
-                class="whatsapp-button"
-                href="https://wa.me/5581989084421"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Entrar em contato com o CSRaiz pelo WhatsApp">
+                nav.classList.remove("active");
 
-                WhatsApp
+            });
 
-            </a>
+        });
 
-        </div>
-
-    </div>
-
-</section>
+    </script>
 
 
-</main>
+    <!-- ==================================================
+         STRUCTURED DATA - WEBSITE
+    ================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CSRaiz",
+        "url": "https://csraiz.xyz/",
+        "description": "Host e aluguel de servidores de Counter-Strike 1.6 no Brasil."
+    }
+
+    </script>
 
 
-<!-- FOOTER -->
+    <!-- ==================================================
+         STRUCTURED DATA - ORGANIZATION
+    ================================================== -->
 
-<footer>
+    <script type="application/ld+json">
 
-    <p>
-        © 2026 <strong>CSRaiz</strong>
-    </p>
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CSRaiz",
+        "url": "https://csraiz.xyz/",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-81-98908-4421",
+            "contactType": "customer service",
+            "contactOption": "WhatsApp",
+            "availableLanguage": "Portuguese"
+        }
+    }
 
-    <p>
-        Servidores de Counter-Strike 1.6.
-        O bom e velho CS.
-    </p>
-
-</footer>
-
-
-<!-- STATUS FIXO TEMPORÁRIO -->
-
-<script>
-
-function mostrarServidoresOnline() {
-
-    const servidores =
-        document.querySelectorAll('.server-card');
+    </script>
 
 
-    servidores.forEach(card => {
+    <!-- ==================================================
+         STRUCTURED DATA - SERVIÇO
+    ================================================== -->
 
-        const statusText =
-            card.querySelector('.status-text');
+    <script type="application/ld+json">
 
-        const players =
-            card.querySelector('.players');
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Hospedagem de servidores Counter-Strike 1.6",
+        "serviceType": "Host de servidores CS 1.6",
+        "provider": {
+            "@type": "Organization",
+            "name": "CSRaiz",
+            "url": "https://csraiz.xyz/"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+        }
+    }
 
-        const map =
-            card.querySelector('.map');
-
-
-        card.classList.remove(
-            'offline',
-            'error'
-        );
-
-
-        card.classList.add(
-            'online'
-        );
-
-
-        statusText.textContent =
-            'ONLINE';
+    </script>
 
 
-        players.textContent =
-            'Servidor online';
+    <!-- ==================================================
+         STRUCTURED DATA - FAQ
+    ================================================== -->
 
+    <script type="application/ld+json">
 
-        map.textContent =
-            '-';
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
 
-    });
+            {
+                "@type": "Question",
+                "name": "Onde posso alugar um servidor CS 1.6?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A CSRaiz oferece planos de aluguel de servidores Counter-Strike 1.6 de 10 a 32 slots."
+                }
+            },
 
-}
+            {
+                "@type": "Question",
+                "name": "Quanto custa um servidor CS 1.6?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Os planos da CSRaiz começam em R$ 24,90 por mês para 10 slots."
+                }
+            },
 
+            {
+                "@type": "Question",
+                "name": "Quantos slots posso contratar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A CSRaiz possui planos de 10, 12, 16, 20, 24 e 32 slots."
+                }
+            },
 
-mostrarServidoresOnline();
+            {
+                "@type": "Question",
+                "name": "O servidor possui painel?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim. Os planos possuem painel GameAP para gerenciamento do servidor."
+                }
+            },
 
-</script>
+            {
+                "@type": "Question",
+                "name": "Como faço para contratar um servidor CS 1.6?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Escolha um plano e entre em contato diretamente pelo WhatsApp da CSRaiz."
+                }
+            }
 
+        ]
+    }
+
+    </script>
 
 </body>
-
 </html>
