@@ -1,5 +1,5 @@
 {
-  "atualizado": "2026-09-30T18:40:17.289Z",
+  "atualizado": "2026-09-30T19:00:29.434Z",
   "servidores": [
     {
       "nome": "DE_INFERNO 24/7 | VANILLA",
@@ -11,7 +11,7 @@
       "map": "-",
       "hostname": "DE_INFERNO 24/7 | VANILLA",
       "erro": "Gamedig.query is not a function",
-      "atualizado": "2026-09-30T18:40:17.288Z"
+      "atualizado": "2026-09-30T19:00:29.434Z"
     },
     {
       "nome": "DE_DUST2 24/7 | VANILLA",
@@ -23,7 +23,7 @@
       "map": "-",
       "hostname": "DE_DUST2 24/7 | VANILLA",
       "erro": "Gamedig.query is not a function",
-      "atualizado": "2026-09-30T18:40:17.289Z"
+      "atualizado": "2026-09-30T19:00:29.434Z"
     }
   ]
 }
